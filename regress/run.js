@@ -8,7 +8,7 @@ const CASES=require('./cases.js'), BASE=path.join(__dirname,'baseline.json'), AP
  await p.goto(APP,{waitUntil:'domcontentloaded'}); await p.waitForTimeout(1200);
  const out={};
  for(const c of CASES){
-  out[c.id]=await p.evaluate(c=>{
+  out[c.id]=await p.evaluate(async c=>{
    const r2=x=>Math.round(x*100)/100, deep=(t,s)=>{ for(const k in s){ if(s[k]&&typeof s[k]==="object"&&!Array.isArray(s[k])&&t[k]&&typeof t[k]==="object") deep(t[k],s[k]); else t[k]=s[k]; } };
    S=Object.assign(JSON.parse(JSON.stringify(DEFAULT_SETTINGS)),c.set||{});
    CFG=defaultConfig(!!c.example); if(c.cfg) deep(CFG,JSON.parse(JSON.stringify(c.cfg))); normalize(CFG);
@@ -22,7 +22,7 @@ const CASES=require('./cases.js'), BASE=path.join(__dirname,'baseline.json'), AP
     mount:Object.fromEntries(Object.entries(CFG.mount).filter(x=>+x[1]>0)),mountH:CFG.mountH||{},auff:CFG.svc.auff||0};
    o.preis={net:R.net,vat:R.vat,gross:R.gross,labor:R.labor};
    o.lines=R.lines.map(l=>[l.title,r2(+l.qty||0),l.unit,r2(l.gp)]);
-   if(c.auf&&typeof renderAuf==="function"&&document.getElementById("aufBody")){ try{ CFG.auf.mode="auf"; renderAll(); UI.torOpen="mass"; accApply("torAcc","torOpen"); renderAuf();
+   if(c.auf&&typeof renderAuf==="function"&&document.getElementById("aufBody")){ try{ CFG.auf.mode="auf"; renderAll(); UI.torOpen="mass"; accApply("torAcc","torOpen"); renderAuf(); await new Promise(r=>setTimeout(r,60)); /* nach der Verkaufspreis-Umrechnung lesen, wie angezeigt */
      o.mehrpreise=[...document.querySelectorAll('#aufBody ul')].map(u=>{ const h=u.closest('[id^="pk_"]'); return (h?h.id:"?")+": "+[...u.querySelectorAll('li')].map(li=>{ const c=li.querySelector('.pk-cost'); return (li.querySelector('.lbl b')||li).innerText.trim().slice(0,40)+" = "+(c?c.innerText.replace(/\s+/g," ").trim():"–"); }).join(" | "); });
      R=compute(CFG); }catch(e){ o.mehrpreise=["Fehler: "+e.message]; } }
    o.err=R.err; o.warn=R.warn; o.notes=aufNotes(CFG); o.onotes=typeof offerNotes==="function"?offerNotes(CFG):o.notes; o.strips=doorStrips(CFG);
