@@ -34,6 +34,10 @@ tr.g td{{background:#2b2829;color:#fff;font-weight:700}}.id{{font-weight:700;whi
 <div class="box"><b>Mir ist beim Erstellen aufgefallen (bitte beurteilen):</b><ul>
 <li><b>a09:</b> Bei „eine Größe kleiner“ (Torhöhe 2250 mm) wählt das Aufmaß Beschlag 6.(NU), obwohl Beschlag 8 bei 2250 mm zulässig wäre. Ursache: Die Zulässigkeit von Beschlag 8 wird mit der größtmöglichen Höhe (2370 mm) geprüft statt mit der gewählten Standardhöhe. Das halte ich für einen Fehler.</li>
 <li><b>k06, k07, k17:</b> Bei 5000/4500 mm Breite bzw. Dachfolge bleibt Beschlag 8 eingestellt, mit Fehlermeldung. Das ist gewollt (der Nutzer muss umstellen) – nur zur Info.</li>
+<li><b>Neu, a54:</b> Bodenversatz 15 mm → Z-Profil (L-Profil gilt nur für 20–30 mm). Ist ein Z-Profil bei so wenig Versatz praktikabel, oder wäre hier „bauseits“ bzw. ein anderes Profil richtig?</li>
+<li><b>Neu, a40:</b> Lichte Höhe 2135 mm → Sonderhöhe 2135 mm. Standardhöhe 2250 wäre 115 mm höher und wird nur bis 15 mm Überdeckung vorgeschlagen. Ist die 15-mm-Grenze für euch richtig?</li>
+<li><b>Neu, a64/a65:</b> Premium mit 100 mm Anschlag oben → Beschlag 6.(NU) statt Standard 5., weil 5. nur bis 2115 mm reicht. Fachlich so gewollt?</li>
+<li><b>Neu, a44/a63:</b> Anschlag oben 0 mm und knappe Decke → Sonderhöhe mit Sturzblende statt Beschlag 6.(NU) bei voller Höhe. Würdet ihr in der Praxis eher den Niedrigsturzbeschlag nehmen?</li>
 <li><b>a07:</b> Sonderhöhe 2145 mm aus 2250-mm-Torblatt: Warnung zur gekürzten Sicke beim Motiv medio. Fachlich korrekt?</li>
 </ul></div>
 <table><thead><tr><th>Nr.</th><th>Fall</th><th>Ergebnis</th><th class="r">Netto</th><th class="r">davon Arbeit</th><th>OK?</th></tr></thead><tbody>{rows}</tbody></table></body></html>'''
