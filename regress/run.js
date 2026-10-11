@@ -9,12 +9,15 @@ const CASES=require('./cases.js'), BASE=path.join(__dirname,'baseline.json'), AP
  const out={};
  for(const c of CASES){
   out[c.id]=await p.evaluate(async c=>{
+   const hash=t=>{ let h=0; for(let i=0;i<t.length;i++) h=(h*31+t.charCodeAt(i))|0; return (h>>>0).toString(16)+'/'+t.length; };
    const r2=x=>Math.round(x*100)/100, deep=(t,s)=>{ for(const k in s){ if(s[k]&&typeof s[k]==="object"&&!Array.isArray(s[k])&&t[k]&&typeof t[k]==="object") deep(t[k],s[k]); else t[k]=s[k]; } };
    S=Object.assign(JSON.parse(JSON.stringify(DEFAULT_SETTINGS)),c.set||{});
    CFG=defaultConfig(!!c.example); if(c.cfg) deep(CFG,JSON.parse(JSON.stringify(c.cfg))); normalize(CFG);
    const o={t:c.t};
    if(c.auf){ CFG.auf=Object.assign(aufDefault(),JSON.parse(JSON.stringify(c.auf))); const r=aufCalc(CFG.auf,CFG);
     o.auf={B:r.B,H:r.H,beschlag:r.bSel||null,acc:r.acc,todo:r.todo,warn:r.warn,err:r.err,missing:r.missing};
+    o.aufR=JSON.parse(JSON.stringify(r)); /* vollständiges Aufmaß-Ergebnis – Netz für das Zerlegen von aufCalc */
+    o.aufSvg=hash(aufSvg(CFG.auf));
     if(r.B&&r.H&&!r.err.length) aufApply(r); }
    R=compute(CFG);
    if(c.pxTest){ CFG.px={}; R.lines.forEach(l=>{ if(l.key) CFG.px[l.key]=l.ep; }); const n0=R.net; Object.assign(S,c.pxTest); R=compute(CFG); o.px={vorher:n0,gesperrt:R.net,geaendert:R.changed.length,neu:r2(R.lines.reduce((a,l)=>a+r2((l.curEp??l.ep)*l.qty),0))}; R.lines.forEach(l=>{ if(l.key) CFG.px[l.key]=l.curEp; }); R=compute(CFG); o.px.nachUebernahme=R.net; }
@@ -26,7 +29,8 @@ const CASES=require('./cases.js'), BASE=path.join(__dirname,'baseline.json'), AP
      o.mehrpreise=[...document.querySelectorAll('#aufBody ul')].map(u=>{ const h=u.closest('[id^="pk_"]'); return (h?h.id:"?")+": "+[...u.querySelectorAll('li')].map(li=>{ const c=li.querySelector('.pk-cost'); return (li.querySelector('.lbl b')||li).innerText.trim().slice(0,40)+" = "+(c?c.innerText.replace(/\s+/g," ").trim():"–"); }).join(" | "); });
      R=compute(CFG); }catch(e){ o.mehrpreise=["Fehler: "+e.message]; } }
    o.err=R.err; o.warn=R.warn; o.notes=aufNotes(CFG); o.onotes=typeof offerNotes==="function"?offerNotes(CFG):o.notes; o.strips=doorStrips(CFG);
-   o.pos=offerPositions().map(x=>[x.pos,x.title,r2(x.gp)]);
+   o.pos=offerPositions().map(x=>[x.pos,x.title,r2(x.gp),x.text]);
+   o.tor=hash(drawDoor(CFG)); o.adr=[kAdr(CFG.k).join(' / '),anrede()];
    if(c.offer){ o.pages={}; for(const f of c.offer){ if(f==="mo"){ CFG.a.stil="modern"; } else { CFG.a.stil="klassisch"; S.brief=f==="kr"?"krings":"std"; }
      renderSheet(); o.pages[f]=f==="kr"?document.querySelectorAll('#sheet .kpage').length:f==="mo"?document.querySelectorAll('#sheet .mpage').length:1; } }
    return o; },c);
