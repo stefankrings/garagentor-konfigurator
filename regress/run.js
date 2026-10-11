@@ -22,6 +22,9 @@ const CASES=require('./cases.js'), BASE=path.join(__dirname,'baseline.json'), AP
     mount:Object.fromEntries(Object.entries(CFG.mount).filter(x=>+x[1]>0)),mountH:CFG.mountH||{},auff:CFG.svc.auff||0};
    o.preis={net:R.net,vat:R.vat,gross:R.gross,labor:R.labor};
    o.lines=R.lines.map(l=>[l.title,r2(+l.qty||0),l.unit,r2(l.gp)]);
+   if(c.auf&&typeof renderAuf==="function"&&document.getElementById("aufBody")){ try{ CFG.auf.mode="auf"; renderAll(); UI.torOpen="mass"; accApply("torAcc","torOpen"); renderAuf();
+     o.mehrpreise=[...document.querySelectorAll('#aufBody ul')].map(u=>{ const h=u.closest('[id^="pk_"]'); return (h?h.id:"?")+": "+[...u.querySelectorAll('li')].map(li=>{ const c=li.querySelector('.pk-cost'); return (li.querySelector('.lbl b')||li).innerText.trim().slice(0,40)+" = "+(c?c.innerText.replace(/\s+/g," ").trim():"–"); }).join(" | "); });
+     R=compute(CFG); }catch(e){ o.mehrpreise=["Fehler: "+e.message]; } }
    o.err=R.err; o.warn=R.warn; o.notes=aufNotes(CFG); o.onotes=typeof offerNotes==="function"?offerNotes(CFG):o.notes; o.strips=doorStrips(CFG);
    o.pos=offerPositions().map(x=>[x.pos,x.title,r2(x.gp)]);
    if(c.offer){ o.pages={}; for(const f of c.offer){ if(f==="mo"){ CFG.a.stil="modern"; } else { CFG.a.stil="klassisch"; S.brief=f==="kr"?"krings":"std"; }

@@ -1981,6 +1981,10 @@
     67.5
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "?: Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
+  ],
   "err": [],
   "warn": [],
   "notes": [],
@@ -2074,6 +2078,13 @@
     "lfm",
     67.5
    ]
+  ],
+  "mehrpreise": [
+   "pk_solB: Sonderzarge 50 mm – Sonderbreite 2480 mm = + 465 € | Standardzarge 80 mm – Sonderbreite 2450  = günstigste+ 153 €",
+   "pk_symB: Beidseitig gleich – wegen der Optik = ± 0 € | Unterschiedlich – mehr Durchfahrt = ± 0 €",
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "?: 1 Paar Seitenzargen-Verkleidung in Torfa = –",
+   "?: Sonderbreite 2450 mm: Tor wird links 50  = – | Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
   ],
   "err": [],
   "warn": [
@@ -2186,6 +2197,13 @@
     "lfm",
     67.5
    ]
+  ],
+  "mehrpreise": [
+   "pk_solB: Sonderzarge 50 mm – Sonderbreite 2460 mm = + 465 € | Standardzarge 80 mm – Sonderbreite 2400  = günstigste+ 153 €",
+   "pk_symB: Beidseitig gleich – wegen der Optik = ± 0 € | Unterschiedlich – mehr Durchfahrt = ± 0 €",
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "?: 1 Paar Seitenzargen-Verkleidung in Torfa = –",
+   "?: Sonderbreite 2400 mm: Tor wird links 50  = – | Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
   ],
   "err": [],
   "warn": [
@@ -2309,6 +2327,13 @@
     67.5
    ]
   ],
+  "mehrpreise": [
+   "pk_solB: Sonderzarge 50 mm – Sonderbreite 2480 mm = + 465 € | Standardzarge 80 mm – Sonderbreite 2450  = günstigste+ 153 €",
+   "pk_symB: Beidseitig gleich – wegen der Optik = ± 0 € | Unterschiedlich – mehr Durchfahrt = ± 0 €",
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "?: 1 Paar Seitenzargen-Verkleidung in Torfa = –",
+   "?: Sonderzarge für 50 mm Seitenplatz – nur  = – | Sonderbreite 2480 mm: Tor wird links 20  = – | Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3425 = –"
+  ],
   "err": [],
   "warn": [
    "Zwischenbreite: Preis für 2500 mm + 142 €",
@@ -2428,6 +2453,13 @@
     "lfm",
     70
    ]
+  ],
+  "mehrpreise": [
+   "pk_solZ: Standardzarge 80 mm – Durchfahrt 2340 mm = günstigste+ 153 € | Sonderzarge 50 mm – Durchfahrt 2400 mm = + 465 €",
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = + 108 € | Beschlag 8. – Zugfeder waagerecht + Höhe = + 202 € | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 108 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 202 €",
+   "?: Höhenkürzung 60 mm: beim Motiv medio sit = –",
+   "?: 1 Paar Seitenzargen-Verkleidung in Torfa = –",
+   "?: Tor in der Öffnung: Zarge braucht je Sei = – | Hinter dem Tor noch 180 mm Mauer – darun = – | Tor in der Öffnung: Sturzteil braucht 60 = – | Raumtiefe ausreichend (benötigt ca. 3210 = – | Sonderhöhe 2190 mm: gebaut aus 2250 mm,  = –"
   ],
   "err": [],
   "warn": [
@@ -2554,6 +2586,13 @@
     70
    ]
   ],
+  "mehrpreise": [
+   "pk_solZ: Standardzarge 80 mm – Durchfahrt 2340 mm = günstigste+ 153 € | Sonderzarge 50 mm – Durchfahrt 2400 mm = + 465 €",
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 108 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 202 €",
+   "?: Höhenkürzung 60 mm: beim Motiv medio sit = –",
+   "?: 1 Paar Seitenzargen-Verkleidung in Torfa = –",
+   "?: Sonderzarge 50 mm: Durchfahrtsbreite 240 = – | Hinter dem Tor noch 180 mm Mauer – darun = – | Tor in der Öffnung: Sturzteil braucht 60 = – | Raumtiefe ausreichend (benötigt ca. 3490 = – | Sonderhöhe 2190 mm: gebaut aus 2250 mm,  = –"
+  ],
   "err": [],
   "warn": [
    "Zwischenbreite: Preis für 2500 mm + 142 €",
@@ -2677,6 +2716,13 @@
     70.1
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "pk_solH: Sonderhöhe 2145 mm = + 153 € | Eine Größe kleiner: 2125 mm = günstigste± 0 €",
+   "?: Höhenkürzung 105 mm: beim Motiv medio si = –",
+   "?: Spalt oben 110 mm mit Sturzblende abdeck = –",
+   "?: Sturz 500 mm tief (mehr als 250 mm): unt = – | Raumtiefe ausreichend (benötigt ca. 3210 = – | Sonderhöhe 2145 mm: gebaut aus 2250 mm,  = –"
+  ],
   "err": [],
   "warn": [
    "Zwischenhöhe: Preis für 2250 mm + 142 €"
@@ -2789,6 +2835,12 @@
     70.1
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "pk_solH: Sonderhöhe 2145 mm = + 153 € | Eine Größe kleiner: 2125 mm = günstigste± 0 €",
+   "?: Sturzblende oben über die Torbreite, Spa = –",
+   "?: Sturz 500 mm tief (mehr als 250 mm): unt = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
+  ],
   "err": [],
   "warn": [],
   "notes": [
@@ -2899,6 +2951,12 @@
     74.6
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "pk_solH: Sonderhöhe 2370 mm = günstigste± 0 € | Eine Größe kleiner: 2250 mm = + 24 €",
+   "?: Blende oben über die Torbreite, Spalt 23 = –",
+   "?: Sturz 500 mm tief (mehr als 420 mm): unt = – | Raumtiefe ausreichend (benötigt ca. 3550 = –"
+  ],
   "err": [],
   "warn": [],
   "notes": [
@@ -2990,6 +3048,11 @@
     "lfm",
     67.5
    ]
+  ],
+  "mehrpreise": [
+   "pk_solW: Standardbreite 2500 mm = günstigste± 0 € | Sonderbreite 2495 mm = + 153 €",
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "?: Standardbreite 2500 mm statt Sonderbreit = – | Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
   ],
   "err": [],
   "warn": [],
@@ -3110,6 +3173,11 @@
     390
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "?: Spalt 40 mm mit Holz auffüttern und auße = – | Auffüttern 3 Blenden, 0,27 m² (40 mm tie = –",
+   "?: Tor 40 mm versetzt: ab Torebene bleiben  = – | Sturz 160 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
+  ],
   "err": [],
   "warn": [],
   "notes": [
@@ -3218,6 +3286,13 @@
     67.5
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "pk_solP: Edelstahl-Z-Profil = + 187 € | Edelstahl-L-Profil 70 × 25 mm = + 139 € | Bauseits angleichen = günstigste± 0 €",
+   "pk_solPb: Ungebohrt = günstigste± 0 € | Vorgebohrt und gesenkt = + 63 €",
+   "?: 1 × Edelstahl-L-Bodenprofil 3 mm, 70 × 2 = –",
+   "?: Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
+  ],
   "err": [],
   "warn": [],
   "notes": [
@@ -3321,6 +3396,13 @@
     67.5
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "pk_solP: Edelstahl-Z-Profil = + 187 € | Edelstahl-L-Profil 70 × 25 mm = – | Bauseits angleichen = günstigste± 0 €",
+   "pk_solPb: Ungebohrt = günstigste± 0 € | Vorgebohrt und gesenkt = + 63 €",
+   "?: 1 × Edelstahl-Z-Bodenprofil 3 mm, x1 80  = –",
+   "?: Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
+  ],
   "err": [],
   "warn": [],
   "notes": [
@@ -3410,6 +3492,12 @@
     67.5
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "pk_solP: Edelstahl-Z-Profil = – | Edelstahl-L-Profil 70 × 25 mm = – | Bauseits angleichen = ± 0 €",
+   "?: Höhenversatz im Boden 60 mm bauseits ang = –",
+   "?: Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
+  ],
   "err": [],
   "warn": [],
   "notes": [
@@ -3494,6 +3582,11 @@
     67.5
    ]
   ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = ± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "?: Raumtiefe 2800 mm zu klein – benötigt ca = –",
+   "?: Sturz 200 mm tief: unter dem Sturz reich = –"
+  ],
   "err": [],
   "warn": [],
   "notes": [],
@@ -3571,6 +3664,10 @@
     "lfm",
     87.5
    ]
+  ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = – | Beschlag 6.(SU) – Torsionsfeder vorne = günstigste± 0 € | Beschlag 6.(SU) – Torsionsfeder vorne +  = – | Beschlag 6.(SU) – Torsionsfeder vorne +  = – | Beschlag 6.(NU) – Niedrigsturz = + 166 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 274 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 368 € | Beschlag Comfort Plus = + 444 € | Beschlag Comfort Plus + Höherführung 60  = + 552 € | Beschlag Comfort Plus + Höherführung 110 = –",
+   "?: Raumtiefe ausreichend (benötigt ca. 3210 = –"
   ],
   "err": [],
   "warn": [],
@@ -3665,6 +3762,10 @@
     "lfm",
     87.5
    ]
+  ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = – | Beschlag 6.(SU) – Torsionsfeder vorne = günstigste± 0 € | Beschlag 6.(SU) – Torsionsfeder vorne +  = – | Beschlag 6.(SU) – Torsionsfeder vorne +  = – | Beschlag 6.(NU) – Niedrigsturz = + 166 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 274 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 368 € | Beschlag Comfort Plus = + 444 € | Beschlag Comfort Plus + Höherführung 60  = + 552 € | Beschlag Comfort Plus + Höherführung 110 = –",
+   "?: Sturz 200 mm tief: unter dem Sturz reich = – | Verstärktes Tor: Die Zargenhöherführung  = – | Raumtiefe ausreichend (benötigt ca. 3425 = –"
   ],
   "err": [],
   "warn": [],
@@ -3763,6 +3864,10 @@
     "lfm",
     67.5
    ]
+  ],
+  "mehrpreise": [
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = günstigste± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = günstigste+ 108 € | Beschlag 8. – Zugfeder waagerecht + Höhe = günstigste+ 202 € | Beschlag 6.(SU) – Torsionsfeder vorne = günstigste± 0 € | Beschlag 6.(SU) – Torsionsfeder vorne +  = – | Beschlag 6.(SU) – Torsionsfeder vorne +  = – | Beschlag 6.(NU) – Niedrigsturz = + 166 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 274 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = + 368 € | Beschlag Comfort Plus = + 444 € | Beschlag Comfort Plus + Höherführung 60  = + 552 € | Beschlag Comfort Plus + Höherführung 110 = –",
+   "?: Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
   ],
   "err": [],
   "warn": [
@@ -3864,6 +3969,14 @@
     "lfm",
     67.5
    ]
+  ],
+  "mehrpreise": [
+   "?: Deckenhöhe 2000 mm ist kleiner als licht = –",
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = – | Beschlag 6.(NU) – Niedrigsturz = ± 0 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = –",
+   "pk_solH: Sonderhöhe 1890 mm = günstigste± 0 € | Eine Größe kleiner: 1800 mm = + 98 €",
+   "?: Höhenkürzung 110 mm: beim Motiv medio si = –",
+   "?: Spalt oben 235 mm mit Sturzblende abdeck = –",
+   "?: Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = – | Sonderhöhe 1890 mm: gebaut aus 2000 mm,  = –"
   ],
   "err": [],
   "warn": [],
@@ -4066,6 +4179,13 @@
     "lfm",
     67.5
    ]
+  ],
+  "mehrpreise": [
+   "pk_solB: Sonderzarge 50 mm – Sonderbreite 2480 mm = + 608 € | Standardzarge 80 mm – Sonderbreite 2450  = günstigste+ 130 €",
+   "pk_symB: Beidseitig gleich – wegen der Optik = ± 0 € | Unterschiedlich – mehr Durchfahrt = ± 0 €",
+   "pk_solBk: Beschlag 8. – Zugfeder waagerecht = günstigste± 0 € | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 8. – Zugfeder waagerecht + Höhe = – | Beschlag 6.(SU) – Torsionsfeder vorne = günstigste± 0 € | Beschlag 6.(SU) – Torsionsfeder vorne +  = – | Beschlag 6.(SU) – Torsionsfeder vorne +  = – | Beschlag 6.(NU) – Niedrigsturz = + 166 € | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag 6.(NU) – Niedrigsturz + Höherfü = – | Beschlag Comfort Plus = + 444 € | Beschlag Comfort Plus + Höherführung 60  = – | Beschlag Comfort Plus + Höherführung 110 = –",
+   "?: 1 Paar Seitenzargen-Verkleidung in Torfa = –",
+   "?: Sonderbreite 2450 mm: Tor wird links 50  = – | Sturz 200 mm tief: unter dem Sturz reich = – | Raumtiefe ausreichend (benötigt ca. 3210 = –"
   ],
   "err": [],
   "warn": [

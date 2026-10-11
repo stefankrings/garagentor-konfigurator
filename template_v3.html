@@ -2741,7 +2741,10 @@ function renderAufRes0(){
 function aufCfg(r,base){ const c=JSON.parse(JSON.stringify(base||CFG)); if(r.hfSel!=null&&!(c.opts&&c.opts.dach)) c.hf=r.hfSel;
  if(r.B) { c.b=r.B; c.bSonder=!W.includes(r.B); } if(r.H) { c.h=r.H; c.hSonder=!H.includes(r.H); }
  if(r.setBeschlag) c.beschlag=r.setBeschlag; c.opts.zarge50=r.acc.some(x=>x[1]==="zarge50"); if(c.opts.zarge50&&BESCHLAG[c.line].some(b=>b[0]==="6NU")) c.beschlag="6NU";
- c.svc.auff=0; c.svc.auffP=[]; r.acc.forEach(([kind,id,q])=>{ if(kind==="mount") c.mount[id]=q; if(kind==="svc") c.svc[id]=q; }); { const gap=(+(c.auf&&c.auf.m.H1)||0)-c.h; if(gap>0) r.acc.forEach(([kind,id])=>{ if(kind==="mount"&&BLH[id]){ c.mountH=c.mountH||{}; c.mountH[id]=gap; } }); } if(c.auf){ c.auf.oB=+c.auf.m.B1||null; c.auf.oH=+c.auf.m.H1||null; c.auf.noteB=c.b; c.auf.noteH=c.h; } normalize(c); return c; }
+ c.svc.auff=0; c.svc.auffP=[];
+ /* bereits übernommenes Aufmaß-Zubehör, das diese Variante nicht braucht, herausnehmen – sonst rechnen Vergleiche mit dem alten Stand */
+ { const now=r.acc.filter(x=>x[0]==="mount").map(x=>x[1]); ((c.auf&&c.auf.accIds)||[]).forEach(id=>{ if(!now.includes(id)){ c.mount[id]=0; if(c.mountH) delete c.mountH[id]; } }); }
+ r.acc.forEach(([kind,id,q])=>{ if(kind==="mount") c.mount[id]=q; if(kind==="svc") c.svc[id]=q; }); { const gap=(+(c.auf&&c.auf.m.H1)||0)-c.h; if(gap>0) r.acc.forEach(([kind,id])=>{ if(kind==="mount"&&BLH[id]){ c.mountH=c.mountH||{}; c.mountH[id]=gap; } }); } if(c.auf){ c.auf.oB=+c.auf.m.B1||null; c.auf.oH=+c.auf.m.H1||null; c.auf.noteB=c.b; c.auf.noteH=c.h; } normalize(c); return c; }
 function aufRes(over){ try{ const a=Object.assign(JSON.parse(JSON.stringify(CFG.auf)),over), r=aufCalc(a,CFG); if(!r.B||!r.H) return null; return compute(aufCfg(r)); }catch(e){ return null; } }
 // Vergleichsbasis „Standard“: Tor genau in lichter Öffnung, aktueller Beschlag, ohne bauliche Sonderlösungen
 const fmtDelta=d=>Math.abs(d)<0.5?"± 0 €":d>0?`+ ${eur0(Math.round(d))}`:`− ${eur0(Math.round(-d))}`;
@@ -2757,7 +2760,8 @@ function aufDeltas(list,ref,note){ const n=list.map(x=>[x[0],aufRes(x[1])]), ok=
  n.forEach(([v,x])=>{ if(!x) return; o[v]={d:fmtDelta(x.net-b.net),best:ok.length>1&&mx-mn>=0.5&&x.net-mn<0.5,html:aufDiff(b,x,note||"Verglichen mit der günstigsten Möglichkeit in dieser Auswahl.")}; }); return o; }
 // Vergleichsbasis für die Zarge: gleiches Tor, aber in voller lichter Breite, ohne Verkleidung und Sonderzarge
 function aufZargeRef(){ try{ const r=aufCalc(CFG.auf,CFG), c=aufCfg(r), B1=+CFG.auf.m.B1; if(!B1) return null; c.b=B1; c.bSonder=!W.includes(B1); c.opts.zarge50=false; c.mount.szv=CFG.mount.szv||0; c.beschlag=r.bSel||c.beschlag; if(c.auf){ c.auf.noteB=c.b; } normalize(c); return compute(c); }catch(e){ return null; } }
-function aufProfRef(){ try{ const r=aufCalc(CFG.auf,CFG), c=aufCfg(r); c.mount.zboden=CFG.mount.zboden||0; c.mount.lboden=CFG.mount.lboden||0; normalize(c); return compute(c); }catch(e){ return null; } }
+/* Vergleichsbasis für die Bodenprofil-Auswahl: dasselbe Tor ganz ohne Bodenprofil */
+function aufProfRef(){ try{ const r=aufCalc(CFG.auf,CFG), c=aufCfg(r); c.mount.zboden=0; c.mount.lboden=0; c.mount.bodenbohr=0; normalize(c); return compute(c); }catch(e){ return null; } }
 const NOTE_Z="Verglichen mit demselben Tor in voller lichter Breite ohne Verkleidung und Sonderzarge – der Beschlag ist im Beschlag-Feld separat bepreist.";
 function H1Gap(a,std){ const h1=+a.m.H1||0; return Math.max(0,h1-std); }
 function aufSig(a){ const k=["seite","sturz","boden","lage","m","solB","solH","solHs","solW","solZ","solBk","solP","solPb","symB","solHf"], o={}; k.forEach(x=>o[x]=a[x]??null); o.line=CFG.line; return JSON.stringify(o); }
