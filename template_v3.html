@@ -44,8 +44,6 @@ h1,h2,h3{font-family:var(--f-display);font-weight:600;margin:0;text-wrap:balance
 .tabs{align-items:center}
 .tabs button.ico{padding:6px 9px;line-height:0}
 .tabs button.ico{position:relative}
-#tab-auf.auf-ok,#tab-auf.auf-ok:hover{color:#2e7d32}
-#tab-auf.auf-stale,#tab-auf.auf-stale:hover{color:#c77700}
 .pvcut{color:var(--err,#c0392b);font-weight:600;white-space:nowrap}
 .auf-auto{margin-top:10px;font-size:13px;padding:8px 10px;border-radius:6px;border-left:4px solid}.auf-auto.ok{background:var(--accent-soft);border-color:var(--accent)}.auf-auto.no{background:var(--warn-bg);border-color:var(--warn)}
 .view.ov:not([hidden]){position:fixed;inset:0;z-index:60;background:rgba(15,20,25,.55);overflow:auto;padding:24px 16px;overscroll-behavior:contain}
@@ -59,7 +57,6 @@ html.exp-open,html.exp-open body{overflow:hidden}
 .v2tag{font:700 11px var(--f-body);background:#c77700;color:#fff;border-radius:4px;padding:2px 6px;vertical-align:middle;letter-spacing:.03em}
 .mmode{display:flex;width:max-content;max-width:100%;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:12px}.mmode button{border:0;background:var(--panel);color:var(--ink);padding:7px 14px;font:600 14px var(--f-body);cursor:pointer}.mmode button.on{background:var(--ink);color:var(--panel)}
 .auf-live{margin-top:10px;font-size:13px;padding:8px 10px;border-radius:6px;border-left:4px solid}.auf-live.ok{background:var(--accent-soft);border-color:var(--accent)}.auf-live.no{background:var(--warn-bg);border-color:var(--warn)}
-.aufdot{display:none;position:absolute;right:4px;top:4px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--panel,#fff)}#tab-auf.auf-ok .aufdot{display:block;background:#2e7d32}#tab-auf.auf-stale .aufdot{display:block;background:#c77700}
 [data-tip]{position:relative}
 [data-tip]::after{content:attr(data-tip);position:absolute;top:calc(100% + 8px);left:50%;transform:translate(-50%,-3px);background:var(--ink);color:var(--panel);font:600 12px/1 var(--f-body);letter-spacing:.01em;white-space:nowrap;padding:6px 9px;border-radius:5px;pointer-events:none;opacity:0;transition:opacity .12s,transform .12s;z-index:20;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 [data-tip]::before{content:"";position:absolute;top:calc(100% + 3px);left:50%;transform:translate(-50%,-3px);border:5px solid transparent;border-top:0;border-bottom-color:var(--ink);pointer-events:none;opacity:0;transition:opacity .12s,transform .12s;z-index:20}
@@ -95,25 +92,6 @@ main{min-height:calc(100vh - var(--hdr,64px));min-height:calc(100dvh - var(--hdr
 .totals .tg>span{color:var(--muted)}
 .totals.big{padding:10px 16px;border-top:1px solid var(--line);background:var(--soft)}
 .tabcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:visible}
-.ctabs{display:flex;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;position:sticky;top:calc(var(--hdr,64px) + var(--stageH,0px));z-index:3;background:var(--panel);border-radius:10px 10px 0 0}
-.ctabs.stuck{box-shadow:0 6px 14px rgba(0,0,0,.10)}
-.ctabs button{flex:1 0 auto;border:0;border-bottom:3px solid transparent;background:none;padding:12px 14px 9px;font:600 15px var(--f-display);letter-spacing:.02em;color:var(--muted);cursor:pointer;display:flex;gap:6px;align-items:center;justify-content:center;white-space:nowrap}
-.ctabs .ti{display:block;position:relative;line-height:0}
-.ctabs svg{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.ctabs:not(.m-stack):not(.m-icon) svg{width:20px;height:20px}
-.ctabs:not(.m-stack):not(.m-icon) button{gap:9px}
-.ctabs:not(.m-stack):not(.m-icon) .bdg{top:-8px;left:calc(100% - 10px)}
-.ctabs.m-stack button,.ctabs.m-icon button{flex:1 1 0;min-width:0;flex-direction:column;gap:3px;padding:9px 4px 7px}
-.ctabs.m-stack button .tl{order:0;font-size:12px;letter-spacing:0}
-.ctabs.m-stack .ti,.ctabs.m-icon .ti{display:block;position:relative;line-height:0}
-.ctabs.m-stack svg,.ctabs.m-icon svg{display:block}
-.ctabs.m-icon svg{width:26px;height:26px}
-.ctabs.m-icon button{padding:11px 4px 9px}
-.ctabs.m-icon .tl{display:none}
-.ctabs .bdg{position:absolute;top:-6px;left:calc(100% - 6px);font-size:10px;padding:0 5px;line-height:15px}
-.ctabs button[aria-selected="true"] svg{color:var(--accent)}
-.ctabs button:hover{color:var(--ink)}
-.ctabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
 .bdg{font:600 11px var(--f-body);background:var(--accent-soft);color:var(--ink);border-radius:999px;padding:1px 7px}
 .bdg:empty{display:none}
 .bdg.err{background:var(--err);color:#fff}
@@ -236,9 +214,9 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 .acc .d{color:var(--muted);font-size:12px}
 .pk.locked .pk-btn,.acc input.locked,.sonder input.locked{opacity:.55;cursor:not-allowed}
 .lockn{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);margin-top:4px}.lockn svg{width:13px;height:13px;flex:none}
-.lockn button,.auflock button{border:0;background:none;padding:0;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;text-decoration:underline}
-.msg.info{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}.auflock[hidden]{display:none}
-.auflock{display:flex;gap:6px 14px;align-items:center;flex-wrap:wrap;margin-bottom:10px}.auflock b{margin-right:auto}
+.lockn button{border:0;background:none;padding:0;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;text-decoration:underline}
+.msg.info{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+
 .settings.set-acc{grid-template-columns:1fr;gap:8px}.settings.set-acc>.sec{margin:0}
 .settings.set-acc>.sec>h2{padding:0;border-bottom:0;align-items:center}.settings.set-acc>.sec.open>h2{border-bottom:1px solid var(--line)}
 .set-h{flex:1;display:flex;align-items:center;gap:10px;padding:11px 16px;border:0;background:none;color:var(--ink);font:inherit;cursor:pointer;text-align:left}.set-h span{flex:1}.set-h:hover{background:var(--soft)}
@@ -654,7 +632,7 @@ details.auf-inp[open]>summary{margin-bottom:8px}
  </div>
  <div class="tabcard">
   <div class="ctab" id="ct-tor" role="tabpanel">
-   <div class="body zub"><div id="aufLockBar" class="msg info auflock" hidden></div><div id="torAcc" class="zacc">
+   <div class="body zub"><div id="torAcc" class="zacc">
 <section class="zg" data-g="kunde"><button type="button" class="zg-h" aria-expanded="false" aria-controls="zgb_kunde"><span class="zg-t">Kunde &amp; Baustelle<small class="zg-s" id="sum_kunde"></small></span><svg class="zg-c" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="zg-b" id="zgb_kunde" role="region" inert><div class="zg-in"><div class="zg-pad"><div class="body">
      <div class="kname">
       <label class="f">Anrede<select id="k_anrede"><option>Herr</option><option>Frau</option><option>Familie</option><option>Firma</option><option value="">–</option></select></label>
@@ -2011,17 +1989,6 @@ function bindBasics(){ bindMode();
  commit("t_ral",()=>!!ralCode(CFG.ral),"editRal");
 }
 
-const CT=["tor"], CT_NAME={tor:"Tor"};
-let CUR_CT="tor";
-function showCtab(id){ id="tor"; if(id!==CUR_CT){ UI.torOpen=""; accApply("torAcc","torOpen"); UI.zubOpen=""; accApply("zubAcc","zubOpen"); } CUR_CT=id; closePk();
- CT.forEach(k=>$("ct-"+k).hidden=k!==id);
- try{localStorage.setItem("gtk_ctab",id)}catch(e){} }
-function fitTabs(){ const tb=$("ctabs"); if(!tb) return;
- for(const m of ["","m-stack","m-icon"]){ tb.classList.remove("m-stack","m-icon"); if(m) tb.classList.add(m);
-  const over=[...tb.querySelectorAll("button")].some(b=>b.scrollWidth>b.clientWidth+1)||tb.scrollWidth>tb.clientWidth+1;
-  if(!over) return; } }
-window.addEventListener("resize",fitTabs); try{ new ResizeObserver(fitTabs).observe($("ctabs")); }catch(e){}
-if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitTabs);
 function stickyBottom(){ let b=document.querySelector(".top").getBoundingClientRect().bottom; const sw=$("stagewrap"); if(sw&&getComputedStyle(sw).position==="sticky") b=Math.max(b,sw.getBoundingClientRect().bottom); return b; }
 function updateBadges(){
  zubCounts(); torSummaries();
@@ -2047,10 +2014,9 @@ const LOCK_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 function aufStale(){ try{ const r=aufCalc(CFG.auf,CFG); if(!r.B||!r.H) return null; const z=r.acc.some(x=>x[1]==="zarge50"), bk=r.setBeschlag||CFG.beschlag, d=[];
   if(r.B!==CFG.b) d.push(`Breite ${r.B} statt ${CFG.b} mm`); if(r.H!==CFG.h) d.push(`Höhe ${r.H} statt ${CFG.h} mm`); if(bk!==CFG.beschlag) d.push(`Beschlag ${bnmG(bk).replace(/\.$/,"")} statt ${bnmG(CFG.beschlag).replace(/\.$/,"")}`); if(z!==!!CFG.opts.zarge50) d.push(z?"Sonderzarge 50 mm nötig":"Sonderzarge 50 mm nicht mehr nötig"); if(r.hfSel!=null&&String(r.hfSel)!==String(CFG.hf||"0")) d.push(`Zargenführung ${r.hfSel==="0"?"Standard":"Höherführung "+r.hfSel+" mm"} statt ${String(CFG.hf||"0")==="0"?"Standard":"Höherführung "+CFG.hf+" mm"}`);
   return d.length?d:null; }catch(e){ return null; } }
-function applyAufLock(){ const bar=$("aufLockBar"); if(!bar) return; const on=aufLocked();
+function applyAufLock(){ const on=aufLocked();
  { const m=aufMode(CFG); document.querySelectorAll(".mmode button").forEach(b=>{ b.classList.toggle("on",b.dataset.mm===m); b.setAttribute("aria-checked",b.dataset.mm===m); }); const ma=$("massAuf"), md=$("massDirect"); if(ma) ma.hidden=m!=="auf"; if(md) md.hidden=m==="auf";
    if(m==="auf"&&ma&&!$("aufRes")) renderAuf(); else if(m==="auf"&&AUF_RSIG!==aufRSig()) renderAufRes(); }
- bar.hidden=!on;
  const hosts=["pk_beschlag","pk_hf","pk_zarge"];
  document.querySelectorAll(".lockn").forEach(e=>e.remove());
  hosts.forEach(id=>{ const h=$(id); if(!h) return; h.classList.toggle("locked",on); const b=h.querySelector(".pk-btn"); if(b) b.disabled=on;
@@ -2059,9 +2025,6 @@ function applyAufLock(){ const bar=$("aufLockBar"); if(!bar) return; const on=au
  const ids=on?(CFG.auf.accIds||[]):[];
  document.querySelectorAll("#zubAcc input.qty").forEach(i=>{ const id=i.id.slice(2), lk=ids.includes(id); i.disabled=lk; i.classList.toggle("locked",lk); i.title=lk?"aus dem Aufmaß – Änderung im Aufmaß":""; });
  const au=$("sv_auff"); if(au){ au.disabled=on; au.title=on?"aus dem Aufmaß – Änderung im Aufmaß":""; }
- bar.hidden=true; if(false){ const st=aufStale();
-  bar.innerHTML=`${LOCK_IC.replace("<svg",'<svg style="width:16px;height:16px;flex:none"')}<b>Tortyp, Maße, Beschlag, Zarge und Aufmaß-Zubehör sind aus dem Aufmaß übernommen und hier gesperrt.</b><button type="button" data-goauf>Im Aufmaß ändern</button><button type="button" id="aufUnlock">Sperre aufheben</button>${st?`<div class="msg warn" style="flex-basis:100%;margin:4px 0 0">Durch spätere Änderungen (z. B. Antrieb, Schlupftür, Dachfolge) passt das Aufmaß-Ergebnis nicht mehr: ${st.join(", ")}. Bitte im Aufmaß prüfen und neu übernehmen.</div>`:""}`;
-  if($("aufUnlock")) $("aufUnlock").onclick=()=>{ if(confirm("Sperre aufheben?\n\nTortyp, Maße, Beschlag und Zarge lassen sich dann frei ändern. Weicht die Torgröße danach vom Aufmaß ab, entfallen die Aufmaß-Hinweise im Angebot und die Zargen-Darstellung in der Fotomontage.")){ CFG.auf.lock=false; renderAll(); toast("Sperre aufgehoben – Aufmaß bleibt gespeichert"); } }; }
  document.querySelectorAll("[data-goauf]").forEach(b=>b.onclick=e=>{ e.preventDefault(); e.stopPropagation(); goAuf(); });
 }
 function update(redrawSide=true){ if(CFG&&CFG.a){ CFG.a.datum=today(); CFG.a.gueltig=today(+S.gueltigTage||14); } /* Angebotsdatum = heute, Gültigkeit lt. Einstellungen */
@@ -2075,7 +2038,6 @@ function update(redrawSide=true){ if(CFG&&CFG.a){ CFG.a.datum=today(); CFG.a.gue
  const lk=lookup(CFG);
  $("specline").textContent=`${isS15(CFG)?"Comfort Sonderpreisliste · ":isPrem(CFG)?"Premium · ":"Comfort Automatik · "}${CFG.surface} ${CFG.motiv} · ${colorName(CFG.color)}${verstaerkt(CFG)?` · verstärkt${durchfahrtVerlust(CFG)>0?` (Durchfahrt −${VERST_PLUS} mm)`:" (mit Höherführung)"}`:""}`;
  if(aufMode(CFG)==="auf"&&!LIVE_BUSY&&aufLocked()&&aufStale()){ aufLive(); return; }
- if(false){ const st=aufStale(); if(st) R.warn.unshift(`Aufmaß neu übernehmen – das Ergebnis hat sich durch Änderungen geändert: ${st.join(", ")}.`); }
  $("msgs").innerHTML=R.err.map(e=>`<div class="msg err">${e}</div>`).join("")+R.warn.map(e=>`<div class="msg warn">${e}</div>`).join("");
  renderCalc(); renderSheet(); updateBadges(); applyAufLock();
 }
@@ -2986,9 +2948,9 @@ function renderAll(){ renderTor(); renderWin(); renderDoor(); renderOpts(); rend
 try{ CFG = normalize(Object.assign(defaultConfig(false),CFG)); }catch(e){ console.warn("Entwurf unlesbar, neues Angebot",e); CFG = normalize(defaultConfig(true)); }
 if(CFG.color==="RAL"&&!ralCode(CFG.ral)) UI.editRal=true;
 if(!CFG.a.nr) CFG.a.nr = S.nextnr;
-bindBasics(); bindSettings(); renderAll(); fitTabs();
+bindBasics(); bindSettings(); renderAll();
 setTimeout(()=>{ try{ toRegion(); }catch(e){} },4000);
-{ let ct="tor"; try{const v=localStorage.getItem("gtk_ctab"); if(CT.includes(v)) ct=v}catch(e){} CUR_CT=""; showCtab(ct); }
+UI.torOpen=""; accApply("torAcc","torOpen"); UI.zubOpen=""; accApply("zubAcc","zubOpen"); closePk(); $("ct-tor").hidden=false;
 { let tb="v-cfg"; try{const v=localStorage.getItem("gtk_tab"); if(v&&$(v)) tb=v}catch(e){} showView(tb); }
 </script>
 <script>/* html2canvas 1.4.1 + jsPDF 2.5.1 (MIT) – für „PDF herunterladen“ */
