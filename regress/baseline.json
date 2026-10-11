@@ -1,0 +1,4136 @@
+{
+ "k01": {
+  "t": "Comfort Sonderpreisliste 2500 × 2125, stucco medio, RAL 9016, Standard-Montage",
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2458.18,
+   "vat": 467.05,
+   "gross": 2925.23,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k02": {
+  "t": "Sonderpreisliste woodgrain 2375 × 2000, RAL 8014",
+  "cfg": {
+   "line": "s15",
+   "b": 2375,
+   "h": 2000,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2584.15,
+   "vat": 490.99,
+   "gross": 3075.14,
+   "labor": 807.55
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1776.6
+   ],
+   [
+    "Montage des Garagentores",
+    237.5,
+    "cm",
+    593.75
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.38,
+    "lfm",
+    63.8
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2370.35
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    63.8
+   ]
+  ]
+ },
+ "k03": {
+  "t": "Comfort Automatik glatt senso 3000 × 2250, RAL 7016",
+  "cfg": {
+   "line": "auto",
+   "b": 3000,
+   "h": 2250,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3678.24,
+   "vat": 698.87,
+   "gross": 4377.11,
+   "labor": 975
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    2703.24
+   ],
+   [
+    "Montage des Garagentores",
+    300,
+    "cm",
+    750
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    7.5,
+    "lfm",
+    75
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    3453.24
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    75
+   ]
+  ]
+ },
+ "k04": {
+  "t": "Automatik Sonderbreite 2630 × 2125",
+  "cfg": {
+   "line": "auto",
+   "b": 2630,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3107.58,
+   "vat": 590.44,
+   "gross": 3698.02,
+   "labor": 876.3
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    2231.28
+   ],
+   [
+    "Montage des Garagentores",
+    263,
+    "cm",
+    657.5
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.88,
+    "lfm",
+    68.8
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenbreite: Preis für 2750 mm + 120 €"
+  ],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2888.78
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    68.8
+   ]
+  ]
+ },
+ "k05": {
+  "t": "Automatik Sonderhöhe 2500 × 2190",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2190,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2783.48,
+   "vat": 528.86,
+   "gross": 3312.34,
+   "labor": 843.8
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1939.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.88,
+    "lfm",
+    68.8
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenhöhe: Preis für 2250 mm + 120 €"
+  ],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2564.68
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    68.8
+   ]
+  ]
+ },
+ "k06": {
+  "t": "Automatik 5000 × 2125 dunkel (verstärkt), RAL 7016",
+  "cfg": {
+   "line": "auto",
+   "b": 5000,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 4425.78,
+   "vat": 840.9,
+   "gross": 5266.68,
+   "labor": 1492.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    2933.28
+   ],
+   [
+    "Montage des Garagentores",
+    500,
+    "cm",
+    1250
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    9.25,
+    "lfm",
+    92.5
+   ]
+  ],
+  "err": [
+   "Beschlag 8. ist nur für 2250–3000 mm Breite und 2000–2250 mm Höhe zugelassen (Übersicht S. 5). Bitte 6.(SU) oder 6.(NU) wählen."
+  ],
+  "warn": [],
+  "notes": [],
+  "onotes": [
+   "Das Tor wird wegen seiner Breite mit Verstärkungsprofilen gefertigt. Bei geöffnetem Tor stehen diese ca. 60 mm nach unten vor; die Durchfahrtshöhe verringert sich dadurch auf ca. 2065 mm."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    4183.28
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    92.5
+   ]
+  ]
+ },
+ "k07": {
+  "t": "Automatik 4500 × 2250 hell, RAL 9016",
+  "cfg": {
+   "line": "auto",
+   "b": 4500,
+   "h": 2250,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 4249.68,
+   "vat": 807.44,
+   "gross": 5057.12,
+   "labor": 1365
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    2884.68
+   ],
+   [
+    "Montage des Garagentores",
+    450,
+    "cm",
+    1125
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    9,
+    "lfm",
+    90
+   ]
+  ],
+  "err": [
+   "Beschlag 8. ist nur für 2250–3000 mm Breite und 2000–2250 mm Höhe zugelassen (Übersicht S. 5). Bitte 6.(SU) oder 6.(NU) wählen."
+  ],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    4009.68
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    90
+   ]
+  ]
+ },
+ "k08": {
+  "t": "Premium 2500 × 2125 glatt medio RAL 9007",
+  "cfg": {
+   "line": "prem",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "5",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3606.22,
+   "vat": 685.18,
+   "gross": 4291.4,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Premium mit Antrieb",
+    1,
+    "Stk",
+    2763.72
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Premium mit Antrieb, inkl. Montage",
+    3388.72
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k09": {
+  "t": "Premium 3000 × 2500 castello",
+  "cfg": {
+   "line": "prem",
+   "b": 3000,
+   "h": 2500,
+   "beschlag": "5",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 4228.64,
+   "vat": 803.44,
+   "gross": 5032.08,
+   "labor": 980
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Premium mit Antrieb",
+    1,
+    "Stk",
+    3248.64
+   ],
+   [
+    "Montage des Garagentores",
+    300,
+    "cm",
+    750
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    8,
+    "lfm",
+    80
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Premium mit Antrieb, inkl. Montage",
+    3998.64
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    80
+   ]
+  ]
+ },
+ "k10": {
+  "t": "Automatik RAL-Sonderfarbe RAL 3004",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3002.4,
+   "vat": 570.46,
+   "gross": 3572.86,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Mehrpreis Farbe außen RAL 3004 purpurrot",
+    5.31,
+    "m²",
+    349.82
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2435.08
+   ],
+   [
+    "1.1",
+    "Mehrpreis Farbe außen RAL 3004 purpurrot",
+    349.82
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k11": {
+  "t": "Automatik mit Rahmen-Sprossen-Lichtband",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2937.7,
+   "vat": 558.16,
+   "gross": 3495.86,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Rahmen-Sprossen-Lichtband, 2 Felder",
+    1,
+    "Stk",
+    285.12
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2435.08
+   ],
+   [
+    "1.1",
+    "Rahmen-Sprossen-Lichtband, 2 Felder",
+    285.12
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k12": {
+  "t": "Automatik mit 4 Standardfenstern Motiv I",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3088.9,
+   "vat": 586.89,
+   "gross": 3675.79,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Standardfenster Motiv I (rechteckig, ohne Sprosse)",
+    4,
+    "Stk",
+    436.32
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2435.08
+   ],
+   [
+    "1.1",
+    "Standardfenster Motiv I (rechteckig, ohne Sprosse)",
+    436.32
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k13": {
+  "t": "Automatik mit Schlupftür",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 4743.46,
+   "vat": 901.26,
+   "gross": 5644.72,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Schlupftür im Torblatt",
+    1,
+    "Stk",
+    2090.88
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Schlupftür: Sturz gesamt 200 mm und 100 mm seitlicher Platz erforderlich."
+  ],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2435.08
+   ],
+   [
+    "1.1",
+    "Schlupftür im Torblatt",
+    2090.88
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k14": {
+  "t": "Antrieb mit Steuerung tiga",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "tiga",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2998.18,
+   "vat": 569.65,
+   "gross": 3567.83,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Mehrpreis Steuerung tiga",
+    1,
+    "Tor",
+    345.6
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2435.08
+   ],
+   [
+    "1.1",
+    "Mehrpreis Steuerung tiga",
+    345.6
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k15": {
+  "t": "Multi-Comfort-Antrieb (MKA)",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "mka",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 5795.38,
+   "vat": 1101.12,
+   "gross": 6896.5,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort",
+    1,
+    "Stk",
+    1442.88
+   ],
+   [
+    "BELUTEC Multi-Comfort-Antrieb (MKA)",
+    1,
+    "Tor",
+    3510
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "MKA: Preis angenommen als Tor ohne Antrieb + 3.250 €. Die Liste nennt das nicht ausdrücklich – mit BeluTec bestätigen. Lüftungsfunktion mit MKA ebenfalls klären."
+  ],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort, inkl. Montage",
+    2067.88
+   ],
+   [
+    "1.1",
+    "BELUTEC Multi-Comfort-Antrieb (MKA)",
+    3510
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k16": {
+  "t": "Höherführung 60 mm",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2760.58,
+   "vat": 524.51,
+   "gross": 3285.09,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Zargenhöherführung Standard 60 mm",
+    1,
+    "Tor",
+    108
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2435.08
+   ],
+   [
+    "1.1",
+    "Zargenhöherführung Standard 60 mm",
+    108
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k17": {
+  "t": "Dachfolge",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2652.58,
+   "vat": 503.99,
+   "gross": 3156.57,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [
+   "Dachfolge bis 30°: nur mit Beschlag 6.(SU) oder 6.(NU)."
+  ],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2435.08
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k18": {
+  "t": "Sonderzarge 50 mm mit Beschlag 6.(NU)",
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "6NU",
+   "zarge50": true,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2770.3,
+   "vat": 526.36,
+   "gross": 3296.66,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Sonderzarge für 50 mm Seitenplatz",
+    1,
+    "Stk",
+    312.12
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Die Mehrpreise der Sonderausführungen stehen in der Liste beim Comfort Automatik (S. 16). Ob sie für die Sonderpreisliste gleich gelten, beim Hersteller bestätigen lassen."
+  ],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "1.1",
+    "Sonderzarge für 50 mm Seitenplatz",
+    312.12
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k19": {
+  "t": "Zubehör: 2 Pearl, Lichtschranke, SOMweb, Blende 2,5 m × 300 mm, Seitenzargenverkleidung",
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "blende": 2.5,
+    "szv": 1
+   },
+   "mountH": {
+    "blende": 300
+   },
+   "auff": 0
+  },
+  "preis": {
+   "net": 3446.38,
+   "vat": 654.81,
+   "gross": 4101.19,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "4-Befehl Handsender „Pearl“",
+    2,
+    "Stk",
+    118.8
+   ],
+   [
+    "Einweg-Lichtschranke im Set",
+    1,
+    "Stk",
+    102.6
+   ],
+   [
+    "SOMweb Smart-Home-Modul",
+    1,
+    "Stk",
+    301.32
+   ],
+   [
+    "Vorgesetzte Blende 45 mm, Torpaneel mit Einfaßprofil, in Torfarbe",
+    2.5,
+    "m",
+    388.8
+   ],
+   [
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    1,
+    "Paar",
+    76.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": {
+   "l": 0,
+   "r": 0,
+   "t": 300,
+   "blende": true
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "4-Befehl Handsender „Pearl“",
+    118.8
+   ],
+   [
+    "3",
+    "Einweg-Lichtschranke im Set",
+    102.6
+   ],
+   [
+    "4",
+    "SOMweb Smart-Home-Modul",
+    301.32
+   ],
+   [
+    "5",
+    "Vorgesetzte Blende 45 mm, Torpaneel mit Einfaßprofil, in Torfarbe",
+    388.8
+   ],
+   [
+    "6",
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    76.68
+   ],
+   [
+    "7",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "8",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k20": {
+  "t": "ohne Montage, Ausbau und Fuge",
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 1615.68,
+   "vat": 306.98,
+   "gross": 1922.66,
+   "labor": 0
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1615.68
+   ]
+  ]
+ },
+ "k21": {
+  "t": "Einstellungen: Montage separat, Ausstattung nicht einzeln",
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3088.9,
+   "vat": 586.89,
+   "gross": 3675.79,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Standardfenster Motiv I (rechteckig, ohne Sprosse)",
+    4,
+    "Stk",
+    436.32
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    2246.4
+   ],
+   [
+    "2",
+    "Montage des Garagentores",
+    625
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k22": {
+  "t": "Einstellungen: 10 % Aufschlag",
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2619.75,
+   "vat": 497.75,
+   "gross": 3117.5,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1777.25
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2402.25
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k23": {
+  "t": "Blende 130 mm (unter Lieferbereich) – Warnung",
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "blende": 2.5
+   },
+   "mountH": {
+    "blende": 130
+   },
+   "auff": 0
+  },
+  "preis": {
+   "net": 2846.98,
+   "vat": 540.93,
+   "gross": 3387.91,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Vorgesetzte Blende 45 mm, Torpaneel mit Einfaßprofil, in Torfarbe",
+    2.5,
+    "m",
+    388.8
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Vorgesetzte Blende 45 mm: Höhe 130 mm liegt außerhalb des Lieferbereichs 200–550 mm (Preisliste S. 38). Alternativ isolierte Stahlblechblende 32 mm (50–300 mm, nur glatt) oder Sturzblende prüfen."
+  ],
+  "notes": [],
+  "onotes": [],
+  "strips": {
+   "l": 0,
+   "r": 0,
+   "t": 130,
+   "blende": true
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Vorgesetzte Blende 45 mm, Torpaneel mit Einfaßprofil, in Torfarbe",
+    388.8
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "k24": {
+  "t": "Eigene Positionen: 2 × Pflasterarbeiten-Material, Montage-Zusatz Elektroanschluss (Arbeitskosten) und Entsorgung (keine Arbeitskosten)",
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2789.18,
+   "vat": 529.94,
+   "gross": 3319.12,
+   "labor": 1022.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Pflastersteine anthrazit",
+    2,
+    "Stk",
+    91
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ],
+   [
+    "Elektroanschluss Antrieb",
+    1,
+    "Stk",
+    180
+   ],
+   [
+    "Container",
+    1,
+    "Stk",
+    60
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Pflastersteine anthrazit",
+    91
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ],
+   [
+    "5",
+    "Elektroanschluss Antrieb",
+    180
+   ],
+   [
+    "6",
+    "Container",
+    60
+   ]
+  ]
+ },
+ "k25": {
+  "t": "Preisbindung: Preise festgeschrieben, danach TZ 8→12 % und Montage 2,50→3,00 €/cm – Angebot bleibt, Änderungen werden angezeigt",
+  "px": {
+   "vorher": 2517.58,
+   "gesperrt": 2517.58,
+   "geaendert": 3,
+   "neu": 2704.62,
+   "nachUebernahme": 2704.62
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2704.62,
+   "vat": 513.88,
+   "gross": 3218.5,
+   "labor": 967.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1675.52
+   ],
+   [
+    "4-Befehl Handsender „Pearl“",
+    1,
+    "Stk",
+    61.6
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    750
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2425.52
+   ],
+   [
+    "2",
+    "4-Befehl Handsender „Pearl“",
+    61.6
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a01": {
+  "t": "Aufmaß Anschlag, alles passt",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [],
+   "todo": [],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2458.18,
+   "vat": 467.05,
+   "gross": 2925.23,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a02": {
+  "t": "Aufmaß Anschlag links nur 30 mm, asymmetrisch",
+  "auf": {
+   "B": 2450,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "szv",
+     1
+    ]
+   ],
+   "todo": [
+    "1 Paar Seitenzargen-Verkleidung in Torfarbe"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2450,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "szv": 1
+   },
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2688.22,
+   "vat": 510.76,
+   "gross": 3198.98,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1769.04
+   ],
+   [
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    1,
+    "Paar",
+    76.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenbreite: Preis für 2500 mm + 142 €"
+  ],
+  "notes": [
+   "Der seitliche Platz neben der Öffnung reicht für die Standardzarge nicht aus. Das Tor wird als Sonderbreite 2450 mm gefertigt; die Führungsschienen stehen links 50 mm in die lichte Öffnung und werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf Wunsch werden die Führungsschienen nur so weit wie nötig in die Öffnung gesetzt (größtmögliche Durchfahrtsbreite, seitlich unterschiedlich)."
+  ],
+  "onotes": [
+   "Der seitliche Platz neben der Öffnung reicht für die Standardzarge nicht aus. Das Tor wird als Sonderbreite 2450 mm gefertigt; die Führungsschienen stehen links 50 mm in die lichte Öffnung und werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf Wunsch werden die Führungsschienen nur so weit wie nötig in die Öffnung gesetzt (größtmögliche Durchfahrtsbreite, seitlich unterschiedlich)."
+  ],
+  "strips": {
+   "l": 0,
+   "r": 50,
+   "t": 0,
+   "blende": false
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2394.04
+   ],
+   [
+    "2",
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    76.68
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a03": {
+  "t": "Aufmaß Anschlag links 30 mm, symmetrisch",
+  "auf": {
+   "B": 2400,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "szv",
+     1
+    ]
+   ],
+   "todo": [
+    "1 Paar Seitenzargen-Verkleidung in Torfarbe"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2400,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "szv": 1
+   },
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2688.22,
+   "vat": 510.76,
+   "gross": 3198.98,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1769.04
+   ],
+   [
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    1,
+    "Paar",
+    76.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenbreite: Preis für 2500 mm + 142 €"
+  ],
+  "notes": [
+   "Der seitliche Platz neben der Öffnung reicht für die Standardzarge nicht aus. Das Tor wird als Sonderbreite 2400 mm gefertigt; die Führungsschienen stehen links 50 mm, rechts 50 mm in die lichte Öffnung und werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf Wunsch werden die Führungsschienen aus optischen Gründen beidseitig gleich weit in die Öffnung gesetzt."
+  ],
+  "onotes": [
+   "Der seitliche Platz neben der Öffnung reicht für die Standardzarge nicht aus. Das Tor wird als Sonderbreite 2400 mm gefertigt; die Führungsschienen stehen links 50 mm, rechts 50 mm in die lichte Öffnung und werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf Wunsch werden die Führungsschienen aus optischen Gründen beidseitig gleich weit in die Öffnung gesetzt."
+  ],
+  "strips": {
+   "l": 50,
+   "r": 50,
+   "t": 0,
+   "blende": false
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2394.04
+   ],
+   [
+    "2",
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    76.68
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a04": {
+  "t": "Aufmaß Anschlag links 30 mm, Sonderzarge 50 mm",
+  "auf": {
+   "B": 2480,
+   "H": 2125,
+   "beschlag": "6NU",
+   "acc": [
+    [
+     "opt",
+     "zarge50"
+    ],
+    [
+     "mount",
+     "szv",
+     1
+    ]
+   ],
+   "todo": [
+    "1 Paar Seitenzargen-Verkleidung in Torfarbe"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2480,
+   "h": 2125,
+   "beschlag": "6NU",
+   "zarge50": true,
+   "drv": "pro",
+   "mount": {
+    "szv": 1
+   },
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3000.34,
+   "vat": 570.06,
+   "gross": 3570.4,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1769.04
+   ],
+   [
+    "Sonderzarge für 50 mm Seitenplatz",
+    1,
+    "Stk",
+    312.12
+   ],
+   [
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    1,
+    "Paar",
+    76.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenbreite: Preis für 2500 mm + 142 €",
+   "Die Mehrpreise der Sonderausführungen stehen in der Liste beim Comfort Automatik (S. 16). Ob sie für die Sonderpreisliste gleich gelten, beim Hersteller bestätigen lassen."
+  ],
+  "notes": [
+   "Der seitliche Platz neben der Öffnung reicht für die Standardzarge nicht aus. Es wird eine Sonderzarge für 50 mm Seitenplatz eingesetzt (nur mit Niedrigsturzbeschlag 6.(NU)). Das Tor wird als Sonderbreite 2480 mm gefertigt; die Führungsschienen stehen links 20 mm in die lichte Öffnung und werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf Wunsch werden die Führungsschienen nur so weit wie nötig in die Öffnung gesetzt (größtmögliche Durchfahrtsbreite, seitlich unterschiedlich)."
+  ],
+  "onotes": [
+   "Der seitliche Platz neben der Öffnung reicht für die Standardzarge nicht aus. Es wird eine Sonderzarge für 50 mm Seitenplatz eingesetzt (nur mit Niedrigsturzbeschlag 6.(NU)). Das Tor wird als Sonderbreite 2480 mm gefertigt; die Führungsschienen stehen links 20 mm in die lichte Öffnung und werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf Wunsch werden die Führungsschienen nur so weit wie nötig in die Öffnung gesetzt (größtmögliche Durchfahrtsbreite, seitlich unterschiedlich)."
+  ],
+  "strips": {
+   "l": 0,
+   "r": 20,
+   "t": 0,
+   "blende": false
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2394.04
+   ],
+   [
+    "1.1",
+    "Sonderzarge für 50 mm Seitenplatz",
+    312.12
+   ],
+   [
+    "2",
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    76.68
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a05": {
+  "t": "Aufmaß Tor in der Öffnung, Standardzarge",
+  "auf": {
+   "B": 2340,
+   "H": 2190,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "szv",
+     1
+    ]
+   ],
+   "todo": [
+    "1 Paar Seitenzargen-Verkleidung in Torfarbe – Führungsschienen stehen in der lichten Öffnung"
+   ],
+   "warn": [
+    "Höhenkürzung 60 mm: beim Motiv medio sitzt die unterste Sicke nicht mehr gleichmäßig – senso oder castello empfohlen."
+   ],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2340,
+   "h": 2190,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "szv": 1
+   },
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2844.08,
+   "vat": 540.38,
+   "gross": 3384.46,
+   "labor": 845
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1922.4
+   ],
+   [
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    1,
+    "Paar",
+    76.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    7,
+    "lfm",
+    70
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenbreite: Preis für 2375 mm + 142 €",
+   "Zwischenhöhe: Preis für 2250 mm + 142 €"
+  ],
+  "notes": [
+   "Das Tor wird in die Maueröffnung eingebaut (Zarge in der Laibung). Dadurch verringert sich die Durchfahrtsbreite gegenüber der lichten Öffnung (2500 mm) auf ca. 2340 mm. Die Führungsschienen werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf die Sonderzarge 50 mm wurde verzichtet; es wird die Standardzarge verwendet."
+  ],
+  "onotes": [
+   "Das Tor wird in die Maueröffnung eingebaut (Zarge in der Laibung). Dadurch verringert sich die Durchfahrtsbreite gegenüber der lichten Öffnung (2500 mm) auf ca. 2340 mm. Die Führungsschienen werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf die Sonderzarge 50 mm wurde verzichtet; es wird die Standardzarge verwendet."
+  ],
+  "strips": {
+   "l": 80,
+   "r": 80,
+   "t": 60,
+   "blende": false
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2547.4
+   ],
+   [
+    "2",
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    76.68
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    70
+   ]
+  ]
+ },
+ "a06": {
+  "t": "Aufmaß Tor in der Öffnung, Sonderzarge 50 mm",
+  "auf": {
+   "B": 2400,
+   "H": 2190,
+   "beschlag": "6NU",
+   "acc": [
+    [
+     "opt",
+     "zarge50"
+    ],
+    [
+     "mount",
+     "szv",
+     1
+    ]
+   ],
+   "todo": [
+    "1 Paar Seitenzargen-Verkleidung in Torfarbe – Führungsschienen stehen in der lichten Öffnung"
+   ],
+   "warn": [
+    "Höhenkürzung 60 mm: beim Motiv medio sitzt die unterste Sicke nicht mehr gleichmäßig – senso oder castello empfohlen."
+   ],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2400,
+   "h": 2190,
+   "beschlag": "6NU",
+   "zarge50": true,
+   "drv": "pro",
+   "mount": {
+    "szv": 1
+   },
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3156.2,
+   "vat": 599.68,
+   "gross": 3755.88,
+   "labor": 845
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1922.4
+   ],
+   [
+    "Sonderzarge für 50 mm Seitenplatz",
+    1,
+    "Stk",
+    312.12
+   ],
+   [
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    1,
+    "Paar",
+    76.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    7,
+    "lfm",
+    70
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenbreite: Preis für 2500 mm + 142 €",
+   "Zwischenhöhe: Preis für 2250 mm + 142 €",
+   "Die Mehrpreise der Sonderausführungen stehen in der Liste beim Comfort Automatik (S. 16). Ob sie für die Sonderpreisliste gleich gelten, beim Hersteller bestätigen lassen."
+  ],
+  "notes": [
+   "Das Tor wird in die Maueröffnung eingebaut (Zarge in der Laibung). Dadurch verringert sich die Durchfahrtsbreite gegenüber der lichten Öffnung (2500 mm) auf ca. 2400 mm. Die Führungsschienen werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Für mehr Durchfahrtsbreite wird eine Sonderzarge für 50 mm Seitenplatz eingesetzt (nur in Verbindung mit dem Niedrigsturzbeschlag 6.(NU))."
+  ],
+  "onotes": [
+   "Das Tor wird in die Maueröffnung eingebaut (Zarge in der Laibung). Dadurch verringert sich die Durchfahrtsbreite gegenüber der lichten Öffnung (2500 mm) auf ca. 2400 mm. Die Führungsschienen werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Für mehr Durchfahrtsbreite wird eine Sonderzarge für 50 mm Seitenplatz eingesetzt (nur in Verbindung mit dem Niedrigsturzbeschlag 6.(NU))."
+  ],
+  "strips": {
+   "l": 50,
+   "r": 50,
+   "t": 60,
+   "blende": false
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2547.4
+   ],
+   [
+    "1.1",
+    "Sonderzarge für 50 mm Seitenplatz",
+    312.12
+   ],
+   [
+    "2",
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    76.68
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    70
+   ]
+  ]
+ },
+ "a07": {
+  "t": "Aufmaß Sturz zu knapp – Sonderhöhe + Sturzblende",
+  "auf": {
+   "B": 2500,
+   "H": 2145,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "sturzbl",
+     2.5
+    ]
+   ],
+   "todo": [
+    "Spalt oben 110 mm mit Sturzblende abdecken"
+   ],
+   "warn": [
+    "Höhenkürzung 105 mm: beim Motiv medio sitzt die unterste Sicke nicht mehr gleichmäßig – senso oder castello empfohlen."
+   ],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2145,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "sturzbl": 2.5
+   },
+   "mountH": {
+    "sturzbl": 110
+   },
+   "auff": 0
+  },
+  "preis": {
+   "net": 2751.84,
+   "vat": 522.85,
+   "gross": 3274.69,
+   "labor": 845.1
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1769.04
+   ],
+   [
+    "Sturzblende 3 mm in Torfarbe",
+    2.5,
+    "m",
+    137.7
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    7.01,
+    "lfm",
+    70.1
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenhöhe: Preis für 2250 mm + 142 €"
+  ],
+  "notes": [
+   "Die Höhe über der Öffnung reicht nicht für die volle Torhöhe. Das Tor wird in Sonderhöhe 2145 mm gefertigt (unterste Lamelle gekürzt); der Spalt oben wird mit einer Sturzblende abgedeckt."
+  ],
+  "onotes": [
+   "Die Höhe über der Öffnung reicht nicht für die volle Torhöhe. Das Tor wird in Sonderhöhe 2145 mm gefertigt (unterste Lamelle gekürzt); der Spalt oben wird mit einer Sturzblende abgedeckt."
+  ],
+  "strips": {
+   "l": 0,
+   "r": 0,
+   "t": 110,
+   "blende": false
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2394.04
+   ],
+   [
+    "2",
+    "Sturzblende 3 mm in Torfarbe",
+    137.7
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    70.1
+   ]
+  ]
+ },
+ "a08": {
+  "t": "Aufmaß Sturz zu knapp – Standardhöhe + Sturzblende (Spalt 130 mm)",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "sturzbl",
+     2.5
+    ]
+   ],
+   "todo": [
+    "Sturzblende oben über die Torbreite, Spalt 130 mm (vorgesetzte Blende erst ab 200 mm)"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "sturzbl": 2.5
+   },
+   "mountH": {
+    "sturzbl": 130
+   },
+   "auff": 0
+  },
+  "preis": {
+   "net": 2598.48,
+   "vat": 493.71,
+   "gross": 3092.19,
+   "labor": 845.1
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Sturzblende 3 mm in Torfarbe",
+    2.5,
+    "m",
+    137.7
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    7.01,
+    "lfm",
+    70.1
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Die Höhe über der Öffnung reicht nicht für die volle Torhöhe. Das Tor wird in Standardhöhe 2125 mm gefertigt; oberhalb wird eine Sturzblende in Torfarbe montiert."
+  ],
+  "onotes": [
+   "Die Höhe über der Öffnung reicht nicht für die volle Torhöhe. Das Tor wird in Standardhöhe 2125 mm gefertigt; oberhalb wird eine Sturzblende in Torfarbe montiert."
+  ],
+  "strips": {
+   "l": 0,
+   "r": 0,
+   "t": 130,
+   "blende": false
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Sturzblende 3 mm in Torfarbe",
+    137.7
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    70.1
+   ]
+  ]
+ },
+ "a09": {
+  "t": "Aufmaß Sturz zu knapp – Standardhöhe + Blende 45 mm (Spalt 230 mm)",
+  "auf": {
+   "B": 2500,
+   "H": 2250,
+   "beschlag": "6NU",
+   "acc": [
+    [
+     "mount",
+     "blende",
+     2.5
+    ]
+   ],
+   "todo": [
+    "Blende oben über die Torbreite, Spalt 230 mm"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2250,
+   "beschlag": "6NU",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "blende": 2.5
+   },
+   "mountH": {
+    "blende": 230
+   },
+   "auff": 0
+  },
+  "preis": {
+   "net": 2854.08,
+   "vat": 542.28,
+   "gross": 3396.36,
+   "labor": 849.6
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Vorgesetzte Blende 45 mm, Torpaneel mit Einfaßprofil, in Torfarbe",
+    2.5,
+    "m",
+    388.8
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    7.46,
+    "lfm",
+    74.6
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Die Höhe über der Öffnung reicht nicht für die volle Torhöhe. Das Tor wird in Standardhöhe 2250 mm gefertigt; oberhalb wird eine Blende in Torfarbe montiert."
+  ],
+  "onotes": [
+   "Die Höhe über der Öffnung reicht nicht für die volle Torhöhe. Das Tor wird in Standardhöhe 2250 mm gefertigt; oberhalb wird eine Blende in Torfarbe montiert."
+  ],
+  "strips": {
+   "l": 0,
+   "r": 0,
+   "t": 230,
+   "blende": true
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Vorgesetzte Blende 45 mm, Torpaneel mit Einfaßprofil, in Torfarbe",
+    388.8
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    74.6
+   ]
+  ]
+ },
+ "a10": {
+  "t": "Aufmaß 2495 mm – Standardbreite 2500 mit Überdeckung",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [],
+   "todo": [],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2456.93,
+   "vat": 466.82,
+   "gross": 2923.75,
+   "labor": 841.25
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Montage des Garagentores",
+    249.5,
+    "cm",
+    623.75
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Das Tor wird in Standardbreite 2500 mm gefertigt und ist damit 5 mm breiter als die lichte Öffnung (2495 mm). Die Führungsschienen verschwinden vollständig hinter dem Anschlag und stehen sogar etwas zurück."
+  ],
+  "onotes": [
+   "Das Tor wird in Standardbreite 2500 mm gefertigt und ist damit 5 mm breiter als die lichte Öffnung (2495 mm). Die Führungsschienen verschwinden vollständig hinter dem Anschlag und stehen sogar etwas zurück."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2239.43
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a11": {
+  "t": "Aufmaß Anschlag versetzt 40 mm – Auffüttern + Alublech",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "vblech",
+     6.75
+    ],
+    [
+     "svc",
+     "auff",
+     0.27
+    ],
+    [
+     "svc",
+     "auffP",
+     [
+      0.085,
+      0.085,
+      0.1
+     ]
+    ]
+   ],
+   "todo": [
+    "Spalt 40 mm mit Holz auffüttern und außen mit Alublech abdecken (6,75 lfm)",
+    "Auffüttern 3 Blenden, 0,27 m² (40 mm tief) – unter Montage berechnet, je Blende mind. 130 €"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "vblech": 6.75
+   },
+   "mountH": {},
+   "auff": 0.27
+  },
+  "preis": {
+   "net": 3190.81,
+   "vat": 606.25,
+   "gross": 3797.06,
+   "labor": 1232.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Verkleidungsblech 90° mit max. 3 Kantungen",
+    6.75,
+    "m",
+    342.63
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ],
+   [
+    "Versatz zwischen Anschlag und Tor mit Holz auffüttern",
+    1,
+    "psch",
+    390
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Das Tor wird 40 mm hinter dem Anschlag montiert. Der Zwischenraum an Laibung und Sturz wird mit Holz aufgefüttert und außen mit einem Aluminiumblech verkleidet."
+  ],
+  "onotes": [
+   "Das Tor wird 40 mm hinter dem Anschlag montiert. Der Zwischenraum an Laibung und Sturz wird mit Holz aufgefüttert und außen mit einem Aluminiumblech verkleidet."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Verkleidungsblech 90° mit max. 3 Kantungen",
+    342.63
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ],
+   [
+    "5",
+    "Versatz zwischen Anschlag und Tor mit Holz auffüttern",
+    390
+   ]
+  ]
+ },
+ "a12": {
+  "t": "Aufmaß Bodenversatz 25 mm unter dem Tor – L-Profil",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "lboden",
+     1
+    ]
+   ],
+   "todo": [
+    "1 × Edelstahl-L-Bodenprofil 3 mm, 70 × 25 mm, ungebohrt – Höhenversatz im Boden liegt unter dem Tor"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "lboden": 1
+   },
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2597.5,
+   "vat": 493.53,
+   "gross": 3091.03,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "L-Bodenprofil Edelstahl 3 mm, 70 × 25 mm, 3000 mm",
+    1,
+    "Stk",
+    139.32
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Der Höhenversatz im Boden von 25 mm unter dem Tor wird mit einem Edelstahl-L-Bodenprofil 70 × 25 mm überbrückt."
+  ],
+  "onotes": [
+   "Der Höhenversatz im Boden von 25 mm unter dem Tor wird mit einem Edelstahl-L-Bodenprofil 70 × 25 mm überbrückt."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "L-Bodenprofil Edelstahl 3 mm, 70 × 25 mm, 3000 mm",
+    139.32
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a13": {
+  "t": "Aufmaß Bodenversatz 40 mm – Z-Profil",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "zboden",
+     1
+    ]
+   ],
+   "todo": [
+    "1 × Edelstahl-Z-Bodenprofil 3 mm, x1 80 / h1 40 / x2 75 mm, ungebohrt – Höhenversatz im Boden liegt unter dem Tor"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "zboden": 1
+   },
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2645.02,
+   "vat": 502.55,
+   "gross": 3147.57,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Z-Bodenprofil Edelstahl 3 mm, 3000 mm",
+    1,
+    "Stk",
+    186.84
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Der Höhenversatz im Boden von 40 mm unter dem Tor wird mit einem Edelstahl-Z-Bodenprofil (x1 80 / h1 40 / x2 75 mm) überbrückt."
+  ],
+  "onotes": [
+   "Der Höhenversatz im Boden von 40 mm unter dem Tor wird mit einem Edelstahl-Z-Bodenprofil (x1 80 / h1 40 / x2 75 mm) überbrückt."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Z-Bodenprofil Edelstahl 3 mm, 3000 mm",
+    186.84
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a14": {
+  "t": "Aufmaß Bodenversatz 60 mm – bauseits",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [],
+   "todo": [
+    "Höhenversatz im Boden 60 mm bauseits angleichen (Pflaster anpassen oder Natursteinplatte) – Hinweis kommt in den Angebotstext"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2458.18,
+   "vat": 467.05,
+   "gross": 2925.23,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Bauseitige Leistung: Der Höhenversatz im Boden von 60 mm im Torbereich wird vom Auftraggeber angeglichen (z. B. durch Anpassen des Pflasters oder Einbau einer Natursteinplatte), sodass das Tor auf einer ebenen Fläche schließt."
+  ],
+  "onotes": [
+   "Bauseitige Leistung: Der Höhenversatz im Boden von 60 mm im Torbereich wird vom Auftraggeber angeglichen (z. B. durch Anpassen des Pflasters oder Einbau einer Natursteinplatte), sodass das Tor auf einer ebenen Fläche schließt."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a15": {
+  "t": "Aufmaß Raumtiefe zu klein",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [],
+   "todo": [],
+   "warn": [
+    "Raumtiefe 2800 mm zu klein – benötigt ca. 3210 mm (Beschlag 8, Antrieb 3210 mm)."
+   ],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2458.18,
+   "vat": 467.05,
+   "gross": 2925.23,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a17": {
+  "t": "Aufmaß verstärktes Tor 4500 mm dunkel – ohne Höherführung (Durchfahrt −60 mm)",
+  "auf": {
+   "B": 4500,
+   "H": 2125,
+   "beschlag": "6SU",
+   "acc": [],
+   "todo": [],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "auto",
+   "b": 4500,
+   "h": 2125,
+   "beschlag": "6SU",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 4113.26,
+   "vat": 781.52,
+   "gross": 4894.78,
+   "labor": 1362.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    2750.76
+   ],
+   [
+    "Montage des Garagentores",
+    450,
+    "cm",
+    1125
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    8.75,
+    "lfm",
+    87.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Das Tor wird wegen seiner Breite mit Verstärkungsprofilen gefertigt. Bei geöffnetem Tor stehen diese ca. 60 mm nach unten vor; die Durchfahrtshöhe verringert sich dadurch auf ca. 2065 mm."
+  ],
+  "onotes": [
+   "Das Tor wird wegen seiner Breite mit Verstärkungsprofilen gefertigt. Bei geöffnetem Tor stehen diese ca. 60 mm nach unten vor; die Durchfahrtshöhe verringert sich dadurch auf ca. 2065 mm."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    3875.76
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    87.5
+   ]
+  ]
+ },
+ "a18": {
+  "t": "Aufmaß verstärktes Tor 4500 mm dunkel – 6.(NU) + Höherführung 60 mm",
+  "auf": {
+   "B": 4500,
+   "H": 2125,
+   "beschlag": "6NU",
+   "acc": [],
+   "todo": [],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "auto",
+   "b": 4500,
+   "h": 2125,
+   "beschlag": "6NU",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 4387.58,
+   "vat": 833.64,
+   "gross": 5221.22,
+   "labor": 1362.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    2750.76
+   ],
+   [
+    "Zargenhöherführung Standard 60 mm",
+    1,
+    "Tor",
+    108
+   ],
+   [
+    "Mehrpreis Niedrigsturzbeschlag 6.(NU)",
+    1,
+    "Tor",
+    166.32
+   ],
+   [
+    "Montage des Garagentores",
+    450,
+    "cm",
+    1125
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    8.75,
+    "lfm",
+    87.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [
+   "Das Tor wird wegen seiner Breite mit Verstärkungsprofilen und mit Zargenhöherführung gefertigt; die volle Durchfahrtshöhe bleibt erhalten."
+  ],
+  "onotes": [
+   "Das Tor wird wegen seiner Breite mit Verstärkungsprofilen und mit Zargenhöherführung gefertigt; die volle Durchfahrtshöhe bleibt erhalten."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    3875.76
+   ],
+   [
+    "1.1",
+    "Zargenhöherführung Standard 60 mm",
+    108
+   ],
+   [
+    "1.2",
+    "Mehrpreis Niedrigsturzbeschlag 6.(NU)",
+    166.32
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    87.5
+   ]
+  ]
+ },
+ "a19": {
+  "t": "Aufmaß normales Tor – Beschlag 8 + Höherführung 110 mm für mehr Kopfhöhe",
+  "auf": {
+   "B": 2500,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [],
+   "todo": [],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "auto",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2854.54,
+   "vat": 542.36,
+   "gross": 3396.9,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1810.08
+   ],
+   [
+    "Zargenhöherführung Sonder 110 mm",
+    1,
+    "Tor",
+    201.96
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zargenhöherführung 110 mm: Lüftungsfunktion kann eingeschränkt sein."
+  ],
+  "notes": [
+   "Das Tor wird mit Zargenhöherführung 110 mm ausgeführt. Die Laufschienen liegen dadurch höher, die Kopfhöhe in der Garage wird größer."
+  ],
+  "onotes": [
+   "Das Tor wird mit Zargenhöherführung 110 mm ausgeführt. Die Laufschienen liegen dadurch höher, die Kopfhöhe in der Garage wird größer."
+  ],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2435.08
+   ],
+   [
+    "1.1",
+    "Zargenhöherführung Sonder 110 mm",
+    201.96
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "a16": {
+  "t": "Aufmaß widersprüchlich: Decke niedriger als Öffnung",
+  "auf": {
+   "B": 2500,
+   "H": 1890,
+   "beschlag": "6NU",
+   "acc": [
+    [
+     "mount",
+     "sturzbl",
+     2.5
+    ]
+   ],
+   "todo": [
+    "Spalt oben 235 mm mit Sturzblende abdecken"
+   ],
+   "warn": [
+    "Höhenkürzung 110 mm: beim Motiv medio sitzt die unterste Sicke nicht mehr gleichmäßig – senso oder castello empfohlen."
+   ],
+   "err": [
+    "Deckenhöhe 2000 mm ist kleiner als lichte Höhe + Anschlag oben (2225 mm)."
+   ],
+   "missing": []
+  },
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2458.18,
+   "vat": 467.05,
+   "gross": 2925.23,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "3",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ]
+ },
+ "o01": {
+  "t": "Angebot Beispielkonfiguration – KRINGS-Briefpapier, neutral, modern",
+  "cfg": {
+   "line": "s15",
+   "b": 2500,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {},
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 2517.58,
+   "vat": 478.34,
+   "gross": 2995.92,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1615.68
+   ],
+   [
+    "4-Befehl Handsender „Pearl“",
+    1,
+    "Stk",
+    59.4
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [],
+  "notes": [],
+  "onotes": [],
+  "strips": null,
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2240.68
+   ],
+   [
+    "2",
+    "4-Befehl Handsender „Pearl“",
+    59.4
+   ],
+   [
+    "3",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "4",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ],
+  "pages": {
+   "kr": 2,
+   "std": 1,
+   "mo": 4
+  }
+ },
+ "o02": {
+  "t": "Angebot mit viel Zubehör und Aufmaß – alle Angebotsformen",
+  "auf": {
+   "B": 2450,
+   "H": 2125,
+   "beschlag": "8",
+   "acc": [
+    [
+     "mount",
+     "szv",
+     1
+    ]
+   ],
+   "todo": [
+    "1 Paar Seitenzargen-Verkleidung in Torfarbe"
+   ],
+   "warn": [],
+   "err": [],
+   "missing": []
+  },
+  "cfg": {
+   "line": "auto",
+   "b": 2450,
+   "h": 2125,
+   "beschlag": "8",
+   "zarge50": false,
+   "drv": "pro",
+   "mount": {
+    "szv": 1
+   },
+   "mountH": {},
+   "auff": 0
+  },
+  "preis": {
+   "net": 3639.7,
+   "vat": 691.54,
+   "gross": 4331.24,
+   "labor": 842.5
+  },
+  "lines": [
+   [
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb",
+    1,
+    "Stk",
+    1939.68
+   ],
+   [
+    "4-Befehl Handsender „Pearl“",
+    2,
+    "Stk",
+    118.8
+   ],
+   [
+    "Codetaster Entracode+ (Funk)",
+    1,
+    "Stk",
+    258.12
+   ],
+   [
+    "Einweg-Lichtschranke im Set",
+    1,
+    "Stk",
+    102.6
+   ],
+   [
+    "SOMweb Smart-Home-Modul",
+    1,
+    "Stk",
+    301.32
+   ],
+   [
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    1,
+    "Paar",
+    76.68
+   ],
+   [
+    "Montage des Garagentores",
+    250,
+    "cm",
+    625
+   ],
+   [
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    1,
+    "psch",
+    150
+   ],
+   [
+    "Anschlussfuge mit Silikon versiegeln",
+    6.75,
+    "lfm",
+    67.5
+   ]
+  ],
+  "err": [],
+  "warn": [
+   "Zwischenbreite: Preis für 2500 mm + 120 €"
+  ],
+  "notes": [
+   "Der seitliche Platz neben der Öffnung reicht für die Standardzarge nicht aus. Das Tor wird als Sonderbreite 2450 mm gefertigt; die Führungsschienen stehen links 50 mm in die lichte Öffnung und werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf Wunsch werden die Führungsschienen nur so weit wie nötig in die Öffnung gesetzt (größtmögliche Durchfahrtsbreite, seitlich unterschiedlich)."
+  ],
+  "onotes": [
+   "Der seitliche Platz neben der Öffnung reicht für die Standardzarge nicht aus. Das Tor wird als Sonderbreite 2450 mm gefertigt; die Führungsschienen stehen links 50 mm in die lichte Öffnung und werden mit einer Seitenzargenverkleidung in Torfarbe verkleidet.",
+   "Auf Wunsch werden die Führungsschienen nur so weit wie nötig in die Öffnung gesetzt (größtmögliche Durchfahrtsbreite, seitlich unterschiedlich)."
+  ],
+  "strips": {
+   "l": 0,
+   "r": 50,
+   "t": 0,
+   "blende": false
+  },
+  "pos": [
+   [
+    "1",
+    "BeluGa Garagen-Sektionaltor Comfort mit Antrieb, inkl. Montage",
+    2564.68
+   ],
+   [
+    "2",
+    "4-Befehl Handsender „Pearl“",
+    118.8
+   ],
+   [
+    "3",
+    "Codetaster Entracode+ (Funk)",
+    258.12
+   ],
+   [
+    "4",
+    "Einweg-Lichtschranke im Set",
+    102.6
+   ],
+   [
+    "5",
+    "SOMweb Smart-Home-Modul",
+    301.32
+   ],
+   [
+    "6",
+    "Seitenzargenverkleidung 0,6 mm, Fixlänge 3000 mm",
+    76.68
+   ],
+   [
+    "7",
+    "Ausbau und Entsorgung des vorhandenen Garagentores",
+    150
+   ],
+   [
+    "8",
+    "Anschlussfuge mit Silikon versiegeln",
+    67.5
+   ]
+  ],
+  "pages": {
+   "kr": 3,
+   "std": 1,
+   "mo": 4
+  }
+ }
+}
