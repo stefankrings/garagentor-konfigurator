@@ -2315,7 +2315,10 @@ function aufFields(a){ const f=["B1"], s=a.seite, t=a.sturz;
  if(s.startsWith("anschlag")||t.startsWith("anschlag")) f.push("AT"); if(s==="anschlag_versetzt"||t==="anschlag_versetzt") f.push("V");
  f.push("H1"); if(t.startsWith("anschlag")) f.push("AO"); if(t.startsWith("anschlag")||s.startsWith("anschlag")) f.push("ST"); if(s.startsWith("stumpf")) f.push("MT"); if(s==="stumpf_in") f.push("EP"); f.push("DH","RT");
  if(a.boden==="versatz") f.push("DV"); if(a.boden==="versatz"&&a.lage==="unter"){ const dv=+a.m.DV||20, k=a.solP||(dv>=20&&dv<=30?"l":dv<=50?"z":"bs"); if(k==="z"&&dv<=50) f.push("PO","PU"); } return f; }
-function aufCalc(a,c){ const c0=c;
+/* ================= AUFMASS-BERECHNUNG =================
+   aufCalc(a,c) wertet das Aufmaß a für die Konfiguration c aus und liefert R (Bestellmaß, Beschlag, Zubehör, Hinweise).
+   Die Teile laufen in fester Reihenfolge und teilen sich den Kontext X; X.c ist ab aufHoehe die Konfiguration mit gewähltem Beschlag. */
+function aufKontext(a,c){
  // Zargenführung aus dem Aufmaß (Standard / Höherführung 60 / 110 mm) – nicht bei Dachfolge
  const hfOn=!(c.opts&&c.opts.dach), hfSel=hfOn?(a.solHf!=null&&a.solHf!==""?String(a.solHf):String(c.hf||"0")):"0"; if(hfOn) c=Object.assign({},c,{hf:hfSel==="nf"?"0":hfSel});
  const m=a.m, v=k=>{const x=+m[k]; return isFinite(x)&&m[k]!==""&&m[k]!=null?x:null}, R={B:null,H:null,warn:[],info:[],todo:[],acc:[],probB:null,probH:null,missing:[]};
@@ -2325,12 +2328,21 @@ function aufCalc(a,c){ const c0=c;
  const B1=v("B1"), H1=v("H1"), AT=v("AT")||0, V=v("V")||0;
  R.SP=SP; R.st=st; R.st0=st;
  const szvQ=Math.max(1,Math.ceil((H1||2000)/3000)); // Fixlänge 3000 mm je Paar
+ return {a,c,m,v,R,B1,H1,V,SP,z50ok,szvQ,hfOn};
+}
+/* Plausibilität: widersprüchliche Maße als Fehler melden */
+function aufPruefen(X){
+ const {a,v,R,B1,H1,V,SP}=X;
  // Plausibilität: widersprüchliche Maße als Fehler melden
  R.err=[]; { const DH0=v("DH"), DV0=(a.boden==="versatz"&&a.lage==="hinter")?(v("DV")||0):0, AO0=a.sturz.startsWith("anschlag")?(v("AO")||0):0, ST0=v("ST"), MT0=v("MT"), EP0=v("EP");
   if(H1!=null&&DH0!=null&&DH0+DV0<H1+AO0) R.err.push(AO0?`Deckenhöhe ${DH0} mm ist kleiner als lichte Höhe + Anschlag oben (${H1+AO0-DV0} mm).`:`Deckenhöhe ${DH0} mm ist kleiner als die lichte Höhe ${H1-DV0} mm.`);
   if(a.sturz==="anschlag_versetzt"&&ST0!=null&&V>ST0) R.err.push(`Versatz ${V} mm ist größer als die Tiefe hinter dem Anschlag (${ST0} mm).`);
   if(a.seite==="stumpf_in"&&MT0!=null&&EP0!=null&&EP0>MT0) R.err.push(`Torposition ${EP0} mm liegt außerhalb der Mauer (Mauerdicke ${MT0} mm).`);
   if(a.seite==="stumpf_in"&&B1!=null&&B1<=2*SP) R.err.push(`Lichte Breite ${B1} mm zu klein für die Zarge.`); }
+}
+/* Breite: Zarge, Sonderbreite, Symmetrie, Standardbreite mit Überdeckung, Tor in der Öffnung */
+function aufBreite(X){
+ const {a,v,R,B1,V,SP,z50ok,szvQ}=X; const c=X.c;
  // Breite
  if(B1!=null){
   if(a.seite==="stumpf_in"){
@@ -2361,6 +2373,10 @@ function aufCalc(a,c){ const c0=c;
      if(Math.min(side[0],side[1])>=SP+ov){ R.stdW={W:Wn,ov}; const sw=a.solW||"std";
       if(sw==="std"){ R.B=Wn; R.offerNote=`Das Tor wird in Standardbreite ${Wn} mm gefertigt und ist damit ${Wn-B1} mm breiter als die lichte Öffnung (${B1} mm). Die Führungsschienen verschwinden vollständig hinter dem ${an?"Anschlag":"Mauerwerk"} und stehen sogar etwas zurück.`; R.info.push(`Standardbreite ${Wn} mm statt Sonderbreite ${B1} mm: je Seite ${ov} mm Überdeckung, Schienen verschwinden hinter dem ${an?"Anschlag":"Mauerwerk"}. Hinweis kommt in den Angebotstext.`); } } } } }
  }
+}
+/* Höhe und Beschlag: größte Torhöhe je Beschlag, Auswahl, Sturzhinweise, Sonder-/Standardhöhe, Blenden, Höherführung. Rückgabe "neu", wenn die gewählte Höherführung nicht passt */
+function aufHoehe(X){
+ const {a,v,R,B1,H1,V,hfOn}=X; let c=X.c;
  // Höhe + Beschlagsentscheidung
  if(H1!=null){
   const DH=v("DH"), DVh=(a.boden==="versatz"&&a.lage==="hinter")?(v("DV")||0):0;
@@ -2408,10 +2424,14 @@ function aufCalc(a,c){ const c0=c;
   if(hfOn){ const inO=a.sturz==="stumpf_in";
    const hfFor=k=>{ const Hk0=Math.min(H1,Math.floor(hmaxFor(k,"0"))); return ["0","60","110"].map(v=>{ const hm=Math.floor(hmaxFor(k,v)); const ok=v==="0"||inO||hm>=Hk0; return {v,hm,ok,why:ok?"":`zu wenig Platz oben – es fehlen ${Hk0-hm} mm`}; }); };
    R.hfOpts=hfFor(sel.k); R.hfSel=c.hf||"0"; R.hfSet=a.solHf!=null&&a.solHf!=="";
-   const cur=R.hfOpts.find(o=>o.v===R.hfSel); if(cur&&!cur.ok) return aufCalc(Object.assign({},a,{solHf:"0"}),c0);
+   const cur=R.hfOpts.find(o=>o.v===R.hfSel); if(cur&&!cur.ok) return "neu"; /* gewählte Höherführung passt nicht → ohne neu rechnen */
    R.bopts.forEach(o=>{ o.hfv=(o.b8&&o.z5)?hfFor(o.k).filter(x=>x.v!=="0"):[]; o.hf=o.hfv.filter(x=>x.ok).map(x=>x.v); }); }
-  c=Object.assign({},c,{beschlag:sel.k});
+  c=Object.assign({},c,{beschlag:sel.k}); X.c=c; /* folgende Teile rechnen mit dem gewählten Beschlag */
  }
+}
+/* Verstärktes Tor: Durchfahrtsverlust und Hinweise (auch „evtl. verstärkt“ bei heller Farbe) */
+function aufVerstaerkung(X){
+ const {m,R}=X; const c=X.c;
  // Verstärktes Tor: Verstärkungsprofil steht bei geöffnetem Tor ca. 60 mm vor
  if(R.B&&R.H){ const cv=Object.assign({},c,{b:R.B,h:R.H}); if(verstaerkt(cv)){ const dv=durchfahrtVerlust(cv), ok60=!!(R.hfOpts&&R.hfOpts.find(o=>o.v==="60"&&o.ok)), alt=(R.bopts||[]).find(o=>o.hf&&o.hf.includes("60"));
    R.verst={dv,ok60,dh:R.H-dv};
@@ -2420,13 +2440,25 @@ function aufCalc(a,c){ const c0=c;
  if(R.B&&R.H&&!R.verst){ const cd=Object.assign({},c,{b:R.B,h:R.H,color:"7016",ral:""}); if(verstaerkt(cd)){ const ok60=!!(R.hfOpts&&R.hfOpts.find(o=>o.v==="60"&&o.ok)), alt=(R.bopts||[]).find(o=>o.hf&&o.hf.includes("60")), h60=R.hfOpts&&R.hfOpts.find(o=>o.v==="60");
    R.verstMaybe={ok60,alt:alt&&alt.k,need:h60&&!h60.ok?(Math.min(+m.H1||0,R.H)-h60.hm):0};
    } }
+}
+/* Versetzter Anschlag: Auffüttern und Alublech */
+function aufVersatz(X){
+ const {a,R,B1,H1,V}=X;
  // Versatz: Aufdopplung + Alublech
  const vs=[a.seite==="anschlag_versetzt",a.sturz==="anschlag_versetzt"];
  if((vs[0]||vs[1])&&V>0){ const lfm=((vs[0]?2*(H1||0):0)+(vs[1]?(B1||0):0))/1000;
   R.todo.push(`Spalt ${V} mm mit Holz auffüttern und außen mit Alublech abdecken (${lfm.toLocaleString("de-DE",{maximumFractionDigits:2})} lfm)`); R.acc.push(["mount","vblech",+lfm.toFixed(2)]); const parts=[...(vs[0]?[H1||0,H1||0]:[]),...(vs[1]?[B1||0]:[])].map(l=>+(V/1000*l/1000).toFixed(3)), m2=+parts.reduce((s,x)=>s+x,0).toFixed(2); R.acc.push(["svc","auff",m2]); R.acc.push(["svc","auffP",parts]); R.todo.push(`Auffüttern ${parts.length} Blenden, ${m2.toLocaleString("de-DE")} m² (${V} mm tief) – unter Montage berechnet, je Blende mind. ${S.auffmin??130} €`); }
+}
+/* Raumtiefe prüfen */
+function aufRaumtiefe(X){
+ const {v,R}=X; const c=X.c;
  // Raumtiefe
  const RT=v("RT"); if(RT!=null&&R.H){ const req=Math.max(c.drv!=="none"?3210:0,{"8":R.H+625,"6NU":R.H+1300,"5":R.H+325,"plus":R.H+325}[c.beschlag]||0);
   if(RT<req) R.warn.push(`Raumtiefe ${RT} mm zu klein – benötigt ca. ${req} mm (Beschlag ${c.beschlag}${c.drv!=="none"?", Antrieb 3210 mm":""}).`); else R.info.push(`Raumtiefe ausreichend (benötigt ca. ${req} mm).`); }
+}
+/* Höhenversatz im Boden: L-/Z-Profil oder bauseits */
+function aufBoden(X){
+ const {a,v,R,B1,H1}=X;
  // Boden
  if(a.boden==="versatz"){ const dv=v("DV")||20;
   if(a.lage==="unter"){ const lok=dv>=20&&dv<=30, zok=dv<=50; // L-Profil 70 × 25 mm für 20–30 mm Versatz
@@ -2440,6 +2472,10 @@ function aufCalc(a,c){ const c0=c;
     R.todo.push(`${q} × Edelstahl-${pz?"Z":"L"}-Bodenprofil 3 mm, ${mz}, ${bohr?"vorgebohrt und gesenkt":"ungebohrt"} – Höhenversatz im Boden liegt unter dem Tor`); R.acc.push(["mount",pz?"zboden":"lboden",q]); if(bohr) R.acc.push(["mount","bodenbohr",q]); } }
   else if(a.lage==="hinter") R.info.push(`Versprung hinter dem Tor: Tor steht auf dem Außenboden, H1 ist bis zum Außenboden gemessen.`);
   else R.info.push("Versprung liegt vor dem Tor – kein Bodenprofil nötig."); }
+}
+/* Hinweistexte für den Angebots-Nachtext (alle bewusst getroffenen Entscheidungen) */
+function aufTexte(X){
+ const {a,v,R,B1,H1,V}=X; const c=X.c;
  // Hinweise für den Angebots-Nachtext (alle bewusst getroffenen Entscheidungen)
  { const N=[], B1v=v("B1"), H1v=v("H1"), lr=dv=>[dv[0]?`links ${dv[0]} mm`:"",dv[1]?`rechts ${dv[1]} mm`:""].filter(Boolean).join(", ");
   const anS=a.seite.startsWith("anschlag");
@@ -2461,13 +2497,23 @@ function aufCalc(a,c){ const c0=c;
   if(R.prof){ const P=R.prof, dvv=v("DV")||20; if(P.k==="bs") N.push(R.offerNoteP); else N.push(`Der Höhenversatz im Boden von ${dvv} mm unter dem Tor wird mit einem Edelstahl-${P.z?"Z":"L"}-Bodenprofil ${P.z?`(x1 ${v("PU")??"?"} / h1 ${dvv} / x2 ${v("PO")??"?"} mm)`:"70 × 25 mm"}${P.bohr?", vorgebohrt und gesenkt,":""} überbrückt.`); }
   else if(a.boden==="versatz"&&a.lage==="vor") N.push(`Der Höhenversatz im Boden von ${v("DV")||20} mm liegt vor dem Tor; das Tor steht vollständig auf dem Innenboden.`);
   R.notes=N; R.durchB=a.seite==="stumpf_in"||R.probB?R.B:(B1v!=null?Math.min(B1v,R.B||B1v):R.B); }
+}
+/* Sonderhöhe: Kürzung der untersten Lamelle und Folgen für das Motiv */
+function aufKuerzung(X){
+ const {m,R}=X; const c=X.c;
  // Höhenkürzung
  if(R.H&&!H.includes(R.H)){ const th=H.find(x=>x>=R.H); if(th){ const cut=th-R.H, nS=SECTIONS[th]||4, ph=(TBH[th]||th)/nS; R.cut={th,cut,ph};
   R.info.push(`Sonderhöhe ${R.H} mm: gebaut aus ${th} mm, unterste Lamelle wird um ${cut} mm gekürzt.`);
   const m=c.motiv; if(cut>0&&["lamello","medio","visio","classico"].includes(m)) R.warn.push(`Höhenkürzung ${cut} mm: beim Motiv ${m} sitzt die unterste Sicke nicht mehr gleichmäßig – senso oder castello empfohlen.`);
   if(cut>ph*.8&&m==="castello") R.warn.push(`Höhenkürzung ${cut} mm schneidet bei castello die Sicke der untersten Lamelle ab – nur senso empfohlen.`);
   else if(cut>ph*.8) R.info.push(`Starke Kürzung (${cut} mm): castello scheidet aus, senso bleibt.`); } }
- return R;
+}
+function aufCalc(a,c){
+ const X=aufKontext(a,c);
+ aufPruefen(X); aufBreite(X);
+ if(aufHoehe(X)==="neu") return aufCalc(Object.assign({},a,{solHf:"0"}),c);
+ aufVerstaerkung(X); aufVersatz(X); aufRaumtiefe(X); aufBoden(X); aufTexte(X); aufKuerzung(X);
+ return X.R;
 }
 /* Schemazeichnung (nicht maßstäblich) mit Kürzeln der Maße */
 function aufSvg(a){
