@@ -13,7 +13,7 @@ const SCEN=[["bsp",null],["auf","o02"]];
   p.on('pageerror',e=>errs.push(`${W}/${sn}: ${e.message}`));
   await p.addInitScript(()=>{ const D=Date; const T=new D("2026-10-11T10:00:00").getTime(); window.Date=class extends D{ constructor(...a){ super(...(a.length?a:[T])); } static now(){ return T; } }; });
   await p.goto(APP,{waitUntil:'domcontentloaded'}); await p.waitForTimeout(1200);
-  await p.addStyleTag({content:'*,*::before,*::after{transition:none!important;animation:none!important;caret-color:transparent!important} html.vshot .view.ov:not([hidden]),html.vshot #v-offer:not([hidden]){position:static!important;overflow:visible!important;inset:auto!important} html.vshot #v-cfg,html.vshot header .stage,html.vshot .stagewrap{display:none!important}'});
+  await p.addStyleTag({content:'*,*::before,*::after{transition:none!important;animation:none!important;caret-color:transparent!important} html.vshot .view.ov:not([hidden]),html.vshot #v-offer:not([hidden]){position:static!important;overflow:visible!important;inset:auto!important} .v2tag{visibility:hidden!important} html.vshot #v-cfg,html.vshot header .stage,html.vshot .stagewrap{display:none!important}'});
   const c=cid&&CASES.find(x=>x.id===cid);
   await p.evaluate(c=>{ const deep=(t,s)=>{ for(const k in s){ if(s[k]&&typeof s[k]==="object"&&!Array.isArray(s[k])&&t[k]&&typeof t[k]==="object") deep(t[k],s[k]); else t[k]=s[k]; } };
    S=Object.assign(JSON.parse(JSON.stringify(DEFAULT_SETTINGS)),(c&&c.set)||{}); CFG=defaultConfig(true); if(c&&c.cfg) deep(CFG,JSON.parse(JSON.stringify(c.cfg)));
@@ -21,7 +21,7 @@ const SCEN=[["bsp",null],["auf","o02"]];
    normalize(CFG); CFG.a.nr="AN-TEST-001"; bindBasics(); renderAll(); },c);
   await p.waitForTimeout(500);
   const shot=async (nm,ov)=>{ await p.evaluate(ov=>document.documentElement.classList.toggle("vshot",!!ov),ov); await p.mouse.move(0,0); await p.evaluate(()=>document.activeElement&&document.activeElement.blur&&document.activeElement.blur()); await p.waitForTimeout(250); const f=`${W}_${sn}_${nm}.png`; await p.screenshot({path:path.join(UPD?REF:CUR,f),fullPage:true}); shots.push(f);
-   txt[f]=await p.evaluate(()=>{ const v=[...document.querySelectorAll('.view')].filter(x=>!x.hidden); return v.map(x=>x.innerText).join("\n¦\n").replace(/[ \t]+/g," "); }); };
+   txt[f]=await p.evaluate(()=>{ const v=[...document.querySelectorAll('.view')].filter(x=>!x.hidden); return v.map(x=>x.innerText).join("\n¦\n").replace(/[ \t]+/g," ").replace(/\bV\d+\b/g,"V#"); }); };
   const gs=await p.evaluate(()=>[...document.querySelectorAll('#torAcc > .zg')].map(s=>s.dataset.g));
   for(const g of gs){ await p.evaluate(g=>{ UI.torOpen=g; accApply("torAcc","torOpen"); window.scrollTo(0,0); },g); await shot("cfg_"+g); }
   if(sn==="bsp"){
