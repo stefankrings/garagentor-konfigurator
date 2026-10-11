@@ -708,7 +708,6 @@ details.auf-inp[open]>summary{margin-bottom:8px}
 </section>
 
 <!-- ============ ANGEBOT ============ -->
-<section class="view" id="v-auf" hidden></section>
 <section class="view ov" id="v-offer" hidden><div class="exp-panel" role="dialog" aria-modal="true" aria-labelledby="expT"><div class="exp-hd"><b id="expT">Export</b><button type="button" class="info-x" id="expClose" aria-label="Schließen">×</button></div>
  <div class="toolbar">
   <button class="btn primary" id="btnPdf">PDF herunterladen</button>
@@ -2883,9 +2882,9 @@ function bumpNr(nr){ return nr.replace(/(\d+)(?!.*\d)/,m=>String(+m+1).padStart(
 function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2200)}
 let CUR_VIEW=null;
 const OVS=["v-offer","v-set"];
-function showView(id){ if(id==="v-auf"){ goAuf(); return; } if(OVS.includes(id)&&CUR_VIEW===id) id="v-cfg";
+function showView(id){ if(OVS.includes(id)&&CUR_VIEW===id) id="v-cfg";
  if(OVS.includes(id)){ OVS.forEach(o=>{ $(o).hidden=o!==id; }); if(id==="v-set") renderSaved&&renderSaved(); document.documentElement.classList.add("exp-open"); const cf=$("v-cfg"); if(cf) cf.hidden=false; document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===id)); CUR_VIEW=id; try{localStorage.setItem("gtk_tab","v-cfg")}catch(e){} setTimeout(()=>{ const c=$(id==="v-offer"?"expClose":"setClose"); if(c) c.focus(); },0); return; }
- document.documentElement.classList.remove("exp-open"); CUR_VIEW=id; $("chip").hidden=(id==="v-cfg"); if(id==="v-auf") renderAuf();document.querySelectorAll(".view").forEach(v=>v.hidden=v.id!==id);document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===id));try{localStorage.setItem("gtk_tab",id)}catch(e){}window.scrollTo(0,0)}
+ document.documentElement.classList.remove("exp-open"); CUR_VIEW=id; $("chip").hidden=(id==="v-cfg");document.querySelectorAll(".view").forEach(v=>v.hidden=v.id!==id);document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===id));try{localStorage.setItem("gtk_tab",id)}catch(e){}window.scrollTo(0,0)}
 document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>showView(b.dataset.view));
 // Drucken: in eingebetteten Vorschauen (z. B. Datei-Vorschau im Chat) blockiert der Browser den Druckdialog ohne Meldung – dann Hinweis zeigen
 // PDF direkt erzeugen: jede A4-Seite wird als Bild in ein A4-PDF gesetzt – unabhängig von Browser-Druckrändern (z. B. Safari)
