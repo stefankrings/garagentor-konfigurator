@@ -1118,13 +1118,17 @@ function notesTitle(s){ return aufNotes(s).length?"Ausführungshinweise aus dem 
 function apOf(){ const L=(S&&S.contacts)||[]; return L.find(c=>c.id===(CFG.a&&CFG.a.ap))||null; }
 function apName(c){ return c?[c.vn,c.nn].filter(Boolean).join(" "):""; }
 function montDims(s){ const a=s.auf; return (a&&a.oB&&a.noteB===s.b&&a.noteH===s.h)?[a.oB,a.oH||s.h]:[s.b,s.h]; }
-function compute(c){
+/* ================= PREISBERECHNUNG =================
+   compute(c) liefert alle Angebotszeilen mit Preisen. Die Teile hängen über L() Zeilen an P.out an;
+   Reihenfolge = Reihenfolge im Angebot. Preise: kind "h" = Herstellerliste × (TZ, Aufschlag), "l" = eigene Leistung. */
+/* Grundlagen: Faktor, Zeilen-Helfer L(), Prüfungen Motiv/Farbe/Tabelle. Ohne Maße: {fertig} */
+function preisKontext(c){
  const f=(1+S.tz/100)*(1+S.auf/100);
  const out={lines:[],warn:[],err:[]};
  const s=Object.assign({},c,{opts:Object.assign({},c.opts,{fein:isFein(c)})});
  out.size=`${s.b} × ${s.h}`;
  const L=(o)=>{o.qty=o.qty??1;o.unit=o.unit||"Stk";o.list=r2(o.list);o.ep=o.kind==="h"?r2(o.list*f):r2(o.list);o.gp=r2(o.ep*o.qty);out.lines.push(o);return o};
- if(!(s.b>0&&s.h>0)){out.err.push("Bitte lichte Breite und Höhe eingeben.");return finish(applyPx(out,s))}
+ if(!(s.b>0&&s.h>0)){out.err.push("Bitte lichte Breite und Höhe eingeben.");return {fertig:finish(applyPx(out,s))}}
  if(!motifAllowed(s.surface,s.motiv,s.line)) out.err.push(isS15(s)?"Dieses Motiv ist in der Sonderpreisliste nicht enthalten.":"Motiv classico gibt es nur in woodgrain.");
  const grp=colorGroup(s); if(!grp) out.err.push("Diese Farbe ist für die gewählte Oberfläche nicht lieferbar. Bitte neu wählen.");
  const lk=lookup(s);
@@ -1133,6 +1137,11 @@ function compute(c){
  if(lk.suspect) out.warn.push("<b>Preis prüfen:</b> "+lk.suspect+" Vor Bestellung beim Hersteller nachfragen.");
 
  const sq=qm(s);
+ return {s,out,L,lk,grp,sq};
+}
+/* Torposition: Grundpreis lt. Tabelle, Positionstext (Paneel, Oberfläche, Farbe, Beschlag, Antrieb, Dichtung), Antrieb/MKA/Griff, Dekor, RAL-Mehrpreis */
+function preisTor(P){
+ const {s,out,L,lk,grp,sq}=P;
  const surfTxt={woodgrain:"woodgrain (Holzmaserung)",stucco:"stucco (Stucco-Prägung)",glatt:"glatt"}[s.surface];
  const motifTxt={lamello:"lamello (Sicken)",medio:"medio (Mittelsicke)",castello:"castello",visio:"visio",senso:"senso (sickenlos)",classico:"classico (Kassetten)"}[s.motiv];
  if(grp==="ral"){ const rk=ralCode(s.ral);
@@ -1166,13 +1175,23 @@ function compute(c){
   if(grp==="design"){ L({kind:"h",grp:"opt",title:`Design-Pulverbeschichtung ${dekorName(s)}`.trim(),text:"Designdekor als Pulverbeschichtung, Rüstkosten und Flächenpreis, Lieferzeit 8–10 Wochen",list:(isPrem(s)?666:665)+111*sq,unit:"Tor",src:`S.${isPrem(s)?27:19} ${isPrem(s)?666:665} € + 111 €/m²`}); if(!dekorName(s)) out.err.push("Designdekor: Bitte die Dekorbezeichnung angeben."); }
   if(grp==="ral") L({kind:"h",grp:"opt",title:`Mehrpreis Farbe außen ${colorName("RAL")}`,text:"Sonderfarbe RAL nach Wahl, außer Leucht- und Metallicfarben",qty:sq,unit:"m²",list:61,src:`S.${pg16(s,16,24)} 61 €/m²`});
  }
+}
+/* Zargenhöherführung 60/110 mm */
+function preisHoeherfuehrung(P){
+ const {s,out,L,lk,grp}=P;
  { const mm=hfMM(s); if(mm&&!lk.err) L({kind:"h",grp:"opt",title:`Zargenhöherführung ${mm===60?"Standard 60":"Sonder 110"} mm`,text:mm===60?"Höherführung der Laufschienen um 60 mm"+(verstaerkt(s)?" für volle Durchfahrtshöhe beim verstärkten Tor":""):"Höherführung der Laufschienen um 110 mm zur Raumhöhengewinnung",list:hfPrice(s,mm),unit:"Tor",src:`S.${pg16(s,16,24)}`});
    if(mm===110) out.warn.push("Zargenhöherführung 110 mm: Lüftungsfunktion kann eingeschränkt sein."); }
- // Beschlag-Mehrpreis / Einsatzgrenzen
+}
+/* Beschlag: Einsatzgrenzen Beschlag 8, Mehrpreis 6.(NU)/Comfort Plus, Hinweis Schlupftür */
+function preisBeschlag(P){
+ const {s,out,L,lk,grp}=P;
  if(s.beschlag==="8"&&!B8_OK(s)) out.err.push("Beschlag 8. ist nur für 2250–3000 mm Breite und 2000–2250 mm Höhe zugelassen (Übersicht S. 5). Bitte 6.(SU) oder 6.(NU) wählen.");
  { const bs=beschlagOf(s); if(bs[3]&&!lk.err&&grp) L({kind:"h",grp:"opt",title:bs[0]==="plus"?"Mehrpreis Ausführung Comfort Plus":"Mehrpreis Niedrigsturzbeschlag 6.(NU)",text:"",list:bs[3],unit:"Tor",src:"S.16"});
    if(s.door.on&&!isS15(s)&&!["8","5"].includes(s.beschlag)) out.warn.push("Mit Schlupftür wird das Tor mit Industriebeschlag 6.I (NU) gebaut. Gewählten Beschlag mit dem Hersteller abstimmen."); }
- // Fenster
+}
+/* Fenster und Lichtbänder inkl. Zusatzfelder, RAL-Rahmen, Milchglas */
+function preisFenster(P){
+ const {s,out,L,grp}=P;
  const wt=WINDOWS[s.win.type];
  if(s.win.type!=="none"){
   if(s.design.type==="hl") out.err.push("Highlight-Designapplikationen sind laut Preisliste ohne Fensterausschnitte. Fenster oder Applikation abwählen.");
@@ -1194,7 +1213,10 @@ function compute(c){
   }
   if(s.motiv==="classico"&&!wt.band&&wt.shape) out.warn.push("Bei classico sitzen Einzelfenster in den Kassetten. Anzahl und Lage mit dem Hersteller abstimmen.");
  }
- // Design
+}
+/* Designapplikationen (Highlight, Exklusiv) und Designsockelblende – nur glatt senso */
+function preisDesign(P){
+ const {s,out,L,grp}=P;
  const isGS = s.surface==="glatt"&&s.motiv==="senso";
  if(s.design.type!=="none" && !isGS) out.err.push("Designapplikationen gibt es nur auf glatt senso.");
  if(s.design.type==="hl") L({kind:"h",grp:"opt",title:`Highlight-Designapplikation BD ${s.design.hl}`,text:"Aluminium eloxiert in Edelstahlfinish, flach am Torblatt anliegend",list:HIGHLIGHT[s.design.hl],unit:"Tor",src:"S.36"});
@@ -1207,7 +1229,10 @@ function compute(c){
  }
  if(s.design.sockel!=="none"){ if(!isGS) out.err.push("Designsockelblende nur auf glatt senso."); const so=SOCKEL[s.design.sockel];
   L({kind:"h",grp:"opt",title:`Designsockelblende BD ${s.design.sockel} (${so[1]})`,text:"Aluminium eloxiert in Edelstahlfinish, 100 mm hoch"+(s.b>3000?", 2-teilig":""),qty:r2(s.b/1000),unit:"m",list:so[0],src:"S.36"}); }
- // Schlupftür
+}
+/* Schlupftür mit Optionen; Fenster im Türbereich */
+function preisSchlupftuer(P){
+ const {s,out,L,grp}=P;
  if(s.door.on&&isS15(s)) out.err.push("Schlupftür ist in der Sonderpreisliste nicht vorgesehen. Dafür „Comfort Automatik (S. 16–19)“ wählen.");
  if(s.door.on&&!isS15(s)){
   if(s.surface==="glatt") out.err.push("Schlupftür mit glatter Oberfläche nur auf Anfrage (Alu-Rahmen mit Blechbeplankung).");
@@ -1225,7 +1250,10 @@ function compute(c){
    for(let k=0;k<n;k++){ const cx=s.b*(k+.5)/n; if(Math.abs(cx-dc)<ww/2+500) hit.push(k+1); }
    if(hit.length) out.warn.push(`Fenster ${hit.join(", ")} ${hit.length>1?"liegen":"liegt"} im Bereich der Schlupftür. Fenster im Türflügel bzw. die Anordnung mit dem Hersteller klären – die Preisliste nennt dafür keinen Preis.`); }
  }
- // Sonderausführungen
+}
+/* Sonderausführungen (OPTIONS) und zugehörige Hinweise */
+function preisSonderausfuehrung(P){
+ const {s,out,L,grp,sq}=P;
  OPTIONS.forEach(o=>{ if(!s.opts[o.id]) return; const na=o.na&&o.na(s); if(na){out.err.push(`${o.t}: ${na}.`);return}
   if(o.need){const n=o.need(s); if(n) out.warn.push(n)}
   if(o.perqm){L({kind:"h",grp:"opt",title:o.t,text:o.txt,qty:sq,unit:"m²",list:o.perqm,src:`S.${isPrem(s)&&o.page<24?(s.surface==="glatt"?26:24):o.page}`});return}
@@ -1235,7 +1263,10 @@ function compute(c){
  });
  if(isS15(s)&&OPTIONS.some(o=>s.opts[o.id]&&!(o.na&&o.na(s)))) out.warn.push("Die Mehrpreise der Sonderausführungen stehen in der Liste beim Comfort Automatik (S. 16). Ob sie für die Sonderpreisliste gleich gelten, beim Hersteller bestätigen lassen.");
  if(s.drv==="none"&&DRIVE.some(([id])=>+(s.drive[id]||0)>0)) out.warn.push("Antriebszubehör wird bei handbetätigtem Tor nicht berechnet.");
- // Antrieb & Zubehör
+}
+/* Antriebszubehör, Montagezubehör (Blenden, Profile …), eigene Positionen */
+function preisZubehoer(P){
+ const {s,out,L,grp}=P;
  if(s.drv!=="none") DRIVE.forEach(([id,name,p,u])=>{const q=+(s.drive[id]||0); if(q>0) L({kind:"h",grp:"acc",title:name,text:"",qty:q,unit:u,list:p,src:"S.61"})});
  MOUNT.forEach(([id,name,d,p,u,len,extra])=>{const q=+(s.mount[id]||0); if(q<=0) return;
   if(id==="blech32"&&s.surface!=="glatt") out.warn.push("Stahlblechblende 32 mm ist laut Liste nur für glatt.");
@@ -1246,7 +1277,10 @@ function compute(c){
   if(extra) L({kind:"h",grp:"acc",title:"Zuschlag flächenbündige Blende",text:"",list:extra,src:"S.38"});
  });
  (s.custom||[]).forEach(p=>{ const q=+p.qty||0, pr=+p.price||0; if(!q||!(p.title||"").trim()) return; L({kind:"l",grp:"acc",custom:true,title:p.title.trim(),text:(p.text||"").trim(),qty:q,unit:"Stk",list:pr,src:"eigene Position"}); });
- // Eigene Leistungen – Montage und Fuge nach lichter Öffnung, wenn das Tor aus dem Aufmaß stammt
+}
+/* Montageleistungen: Montage, Ausbau, Fuge, Auffüttern, eigene Montagepositionen (Arbeitskosten) */
+function preisMontage(P){
+ const {s,L,grp}=P;
  const [mB,mH]=montDims(s);
  if(s.svc.mont) L({kind:"l",grp:"svc",mont:true,title:"Montage des Garagentores",text:"Fachgerechte Montage von Tor und Antrieb, Einstellung, Funktionsprüfung und Einweisung",qty:mB/10,unit:"cm",list:S.mont,src:`${S.mont} €/cm Breite`,labor:true});
  if(s.svc.demont) L({kind:"l",grp:"svc",title:"Ausbau und Entsorgung des vorhandenen Garagentores",text:"Demontage des Alttores inkl. Antrieb und fachgerechte Entsorgung",qty:1,unit:"psch",list:S.demont,src:"pauschal",labor:true});
@@ -1254,7 +1288,11 @@ function compute(c){
  if(+s.svc.auff>0){ const rate=S.auffm2??350, mn=S.auffmin??130, P=Array.isArray(s.svc.auffP)&&s.svc.auffP.length?s.svc.auffP:[+s.svc.auff], sum=r2(P.reduce((a,x)=>a+Math.max(mn,x*rate),0)), q=r2(+s.svc.auff);
   L({kind:"l",grp:"svc",title:"Versatz zwischen Anschlag und Tor mit Holz auffüttern",text:`Holzaufdopplung an Laibung und Sturz, ${P.length} ${P.length===1?"Blende":"Blenden"}, gesamt ${q.toLocaleString("de-DE")} m²`,qty:1,unit:"psch",list:sum,src:`${rate} €/m², mind. ${mn} € je Blende`,labor:true}); }
  (s.customSvc||[]).forEach(p=>{ const q=+p.qty||0, pr=+p.price||0; if(!q||!(p.title||"").trim()) return; L({kind:"l",grp:"svc",custom:true,title:p.title.trim(),text:(p.text||"").trim(),qty:q,unit:"Stk",list:pr,src:"eigene Montageposition",labor:p.labor!==false}); });
- return finish(applyPx(out,s));
+}
+function compute(c){
+ const P=preisKontext(c); if(P.fertig) return P.fertig;
+ preisTor(P); preisHoeherfuehrung(P); preisBeschlag(P); preisFenster(P); preisDesign(P); preisSchlupftuer(P); preisSonderausfuehrung(P); preisZubehoer(P); preisMontage(P);
+ return finish(applyPx(P.out,P.s));
 }
 /* Preisbindung: jeder Positionspreis (Einzelpreis) wird beim ersten Erscheinen im Angebot festgeschrieben (CFG.px).
    Spätere Änderungen an Einstellungen oder Preisliste wirken erst nach bewusster Übernahme. Torabhängige Positionen
