@@ -3,7 +3,7 @@
 const fs=require('fs'), acorn=require('acorn'), walk=require('acorn-walk');
 const file=process.argv[2], src=fs.readFileSync(file,'utf8');
 const m=[...src.matchAll(/<script>([\s\S]*?)<\/script>/g)].sort((a,b)=>b[1].length-a[1].length)[0];
-const off=m.index+'<script>'.length, js=m[1].replace(/__[A-Z]+__/g,'null');
+const off=m.index+'<script>'.length, js=m[1].replace(/__[A-Z]+__/g,x=>'0'.padEnd(x.length));
 const ast=acorn.parse(js,{ecmaVersion:'latest',sourceType:'script'});
 const decl=[];
 ast.body.forEach(n=>{ if(n.type==='FunctionDeclaration') decl.push({name:n.id.name,kind:'function',start:n.start,end:n.end});

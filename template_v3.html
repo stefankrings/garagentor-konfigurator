@@ -1523,10 +1523,6 @@ function drawDoor(c){
 }
 
 /* ================= FORMULAR AUFBAU ================= */
-function segButtons_unused(el,items,cur,onPick,disabled=()=>false){
- el.innerHTML=items.map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${v===cur}" ${disabled(v)?"disabled":""}>${l}</button>`).join("");
- el.querySelectorAll("button").forEach(b=>b.onclick=()=>onPick(b.dataset.v));
-}
 /* ---- Preisangaben in der Konfiguration: Listenpreise → Verkaufspreis netto (TZ + Aufschlag) ---- */
 const vkFactor=()=>(1+S.tz/100)*(1+S.auf/100);
 const VK_DONE=new WeakSet(); // bereits umgerechnete Textknoten (verhindert doppelte Umrechnung)
@@ -1870,9 +1866,6 @@ function torSummaries(){
  const dx={panik:"Panikschloss",feld2:"im 2. Feld",kaba:"Kaba-Schloss",kabapanik:"Kaba-Panikbeschlag"};
  set("tuer",isS15(CFG)?"nicht in der Sonderpreisliste":(CFG.door.on?["Schlupftür",...Object.keys(dx).filter(k=>CFG.door[k]).map(k=>dx[k])].join(" · "):"ohne"));
 }
-function ausCounts(){ const s15=isS15(CFG), n={fen:CFG.win.type!=="none"?1+!!CFG.win.ralFrame+!!CFG.win.milch:0, dsn:(CFG.design.type!=="none")+(CFG.design.sockel!=="none")+(CFG.design.type==="ex"&&!!CFG.design.exWin), tuer:CFG.door.on&&!s15?1+["panik","feld2","kaba","kabapanik"].filter(k=>CFG.door[k]).length:0};
- const dh=null; if(dh) dh.textContent=isGlattSenso(CFG)&&!isS15(CFG)?"":"nur bei glatt senso";
- Object.entries(n).forEach(([g,v])=>{ const el=document.querySelector(`#ausAcc [data-n="${g}"]`); if(el){ el.textContent=v?String(v):""; el.setAttribute("aria-label",v?`${v} ausgewählt`:""); } }); }
 function zubCounts(){ ZUB_GROUPS.forEach(g=>{ const el=document.querySelector(`#zubAcc [data-n="${g.id}"]`); if(!el) return; const st=g.src==="drive"?CFG.drive:CFG.mount; const n=g.ids.filter(id=>+(st[id]||0)>0).length; el.textContent=n?String(n):""; el.setAttribute("aria-label",n?`${n} ausgewählt`:""); }); }
 function renderDrive(){ renderZub() }
 function renderMount(){ renderZub() }
@@ -2029,7 +2022,6 @@ function fitTabs(){ const tb=$("ctabs"); if(!tb) return;
   if(!over) return; } }
 window.addEventListener("resize",fitTabs); try{ new ResizeObserver(fitTabs).observe($("ctabs")); }catch(e){}
 if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitTabs);
-function scrollToTabs(){ const card=document.querySelector(".tabcard"), sw=$("stagewrap"); const off=(getComputedStyle(sw).position==="sticky"?sw.offsetHeight:0)+document.querySelector(".top").offsetHeight; const y=card.getBoundingClientRect().top+window.scrollY-off; if(window.scrollY>y) window.scrollTo({top:y,behavior:"smooth"}); }
 function stickyBottom(){ let b=document.querySelector(".top").getBoundingClientRect().bottom; const sw=$("stagewrap"); if(sw&&getComputedStyle(sw).position==="sticky") b=Math.max(b,sw.getBoundingClientRect().bottom); return b; }
 function updateBadges(){
  zubCounts(); torSummaries();
@@ -2055,9 +2047,6 @@ const LOCK_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 function aufStale(){ try{ const r=aufCalc(CFG.auf,CFG); if(!r.B||!r.H) return null; const z=r.acc.some(x=>x[1]==="zarge50"), bk=r.setBeschlag||CFG.beschlag, d=[];
   if(r.B!==CFG.b) d.push(`Breite ${r.B} statt ${CFG.b} mm`); if(r.H!==CFG.h) d.push(`Höhe ${r.H} statt ${CFG.h} mm`); if(bk!==CFG.beschlag) d.push(`Beschlag ${bnmG(bk).replace(/\.$/,"")} statt ${bnmG(CFG.beschlag).replace(/\.$/,"")}`); if(z!==!!CFG.opts.zarge50) d.push(z?"Sonderzarge 50 mm nötig":"Sonderzarge 50 mm nicht mehr nötig"); if(r.hfSel!=null&&String(r.hfSel)!==String(CFG.hf||"0")) d.push(`Zargenführung ${r.hfSel==="0"?"Standard":"Höherführung "+r.hfSel+" mm"} statt ${String(CFG.hf||"0")==="0"?"Standard":"Höherführung "+CFG.hf+" mm"}`);
   return d.length?d:null; }catch(e){ return null; } }
-function aufTabState(){ const t=$("tab-auf"); if(!t) return; const a=CFG.auf, has=!!(a&&a.oB&&aufMatch(CFG)), st=has&&aufStale();
- t.classList.toggle("auf-ok",has&&!st); t.classList.toggle("auf-stale",!!st);
- const tip=st?"Aufmaß – passt nicht mehr, bitte neu übernehmen":has?"Aufmaß übernommen":"Aufmaß"; t.dataset.tip=tip; t.setAttribute("aria-label",tip); }
 function applyAufLock(){ const bar=$("aufLockBar"); if(!bar) return; const on=aufLocked();
  { const m=aufMode(CFG); document.querySelectorAll(".mmode button").forEach(b=>{ b.classList.toggle("on",b.dataset.mm===m); b.setAttribute("aria-checked",b.dataset.mm===m); }); const ma=$("massAuf"), md=$("massDirect"); if(ma) ma.hidden=m!=="auf"; if(md) md.hidden=m==="auf";
    if(m==="auf"&&ma&&!$("aufRes")) renderAuf(); else if(m==="auf"&&AUF_RSIG!==aufRSig()) renderAufRes(); }
@@ -2389,7 +2378,6 @@ const AUF_VAR=[["stumpf_hinter","Stumpf – Tor hinter der Öffnung","Zarge inne
  ["stumpf_in","Stumpf – Tor in der Öffnung","Zarge in der Laibung, Durchfahrt wird kleiner"],
  ["anschlag_direkt","Anschlag – Tor direkt hinter dem Anschlag","Zarge auf der Rückseite des Anschlags"],
  ["anschlag_versetzt","Anschlag – Tor nach innen versetzt","Spalt mit Holz aufgefüttert, außen mit Alublech abgedeckt"]];
-const AUF_BODEN=[["eben","Boden eben","innen und außen gleiche Höhe"],["versatz","Höhenversatz","außen tiefer, z. B. 20 mm bei altem Schwingtor"]];
 const AUF_LAGE=[["vor","Versprung vor dem Tor","Tor steht komplett auf dem Innenboden"],["unter","Versprung unter dem Tor","Tor stünde nach außen über – Edelstahl-Bodenprofil nötig"],["hinter","Versprung hinter dem Tor","Tor steht auf dem tieferen Außenboden"]];
 const AUF_F={ // Feld: [Kürzel, Bezeichnung, Hinweis]
  B1:["B1","Lichte Breite Öffnung","zwischen Laibungen bzw. Anschlägen"],
@@ -2564,7 +2552,6 @@ function aufCalc(a,c){ const c0=c;
  return R;
 }
 /* Schemazeichnung (nicht maßstäblich) mit Kürzeln der Maße */
-let PLAN_UP=false;
 function aufSvg(a){
  // Technische Zeichnung: Kettenmaße mit Schrägstrichen, Bruchlinien an geschnittenen Bauteilen, Maßketten außerhalb der Zeichnung
  const MC="#b2541f", wall='fill="#dfe5e9" stroke="#6d7a83" stroke-width="1"', door='stroke="#1f6fb2" stroke-width="4"';
@@ -2841,7 +2828,6 @@ function aufCfg(r,base){ const c=JSON.parse(JSON.stringify(base||CFG)); if(r.hfS
  c.svc.auff=0; c.svc.auffP=[]; r.acc.forEach(([kind,id,q])=>{ if(kind==="mount") c.mount[id]=q; if(kind==="svc") c.svc[id]=q; }); { const gap=(+(c.auf&&c.auf.m.H1)||0)-c.h; if(gap>0) r.acc.forEach(([kind,id])=>{ if(kind==="mount"&&BLH[id]){ c.mountH=c.mountH||{}; c.mountH[id]=gap; } }); } if(c.auf){ c.auf.oB=+c.auf.m.B1||null; c.auf.oH=+c.auf.m.H1||null; c.auf.noteB=c.b; c.auf.noteH=c.h; } normalize(c); return c; }
 function aufRes(over){ try{ const a=Object.assign(JSON.parse(JSON.stringify(CFG.auf)),over), r=aufCalc(a,CFG); if(!r.B||!r.H) return null; return compute(aufCfg(r)); }catch(e){ return null; } }
 // Vergleichsbasis „Standard“: Tor genau in lichter Öffnung, aktueller Beschlag, ohne bauliche Sonderlösungen
-function aufBase(){ try{ const m=CFG.auf.m, B1=+m.B1||CFG.b, H1=+m.H1||CFG.h, c=JSON.parse(JSON.stringify(CFG)); c.b=B1; c.bSonder=!W.includes(B1); c.h=H1; c.hSonder=!H.includes(H1); c.opts.zarge50=false; c.beschlag=stdBeschlag(c); if(c.auf){ c.auf.oB=B1; c.auf.oH=H1; c.auf.noteB=B1; c.auf.noteH=H1; } normalize(c); return compute(c); }catch(e){ return null; } }
 const fmtDelta=d=>Math.abs(d)<0.5?"± 0 €":d>0?`+ ${eur0(Math.round(d))}`:`− ${eur0(Math.round(-d))}`;
 // Zusammensetzung: Positionen, die sich gegenüber der Basis ändern
 function aufDiff(b,o,note){ const sum=L=>{ const m=new Map(); L.forEach(l=>m.set(l.title,(m.get(l.title)||0)+l.gp)); return m; }, NL=L=>L.filter(l=>["h","l","f"].includes(l.kind)), mb=sum(NL(b.lines)), mo=sum(NL(o.lines)), keys=new Set([...mb.keys(),...mo.keys()]), rows=[];
@@ -2860,13 +2846,6 @@ const NOTE_Z="Verglichen mit demselben Tor in voller lichter Breite ohne Verklei
 function H1Gap(a,std){ const h1=+a.m.H1||0; return Math.max(0,h1-std); }
 function aufSig(a){ const k=["seite","sturz","boden","lage","m","solB","solH","solHs","solW","solZ","solBk","solP","solPb","symB","solHf"], o={}; k.forEach(x=>o[x]=a[x]??null); o.line=CFG.line; return JSON.stringify(o); }
 // beim Verlassen des Aufmaßes: übernehmen, wenn es geändert wurde oder die Konfiguration nicht mehr dazu passt
-function aufAutoApply(){ const a=CFG.auf; if(!a||!a.m||!(+a.m.B1)) return; const sig=aufSig(a);
- if(!a.appliedSig&&aufMatch(CFG)&&a.oB){ a.appliedSig=sig; return; } // ältere Angebote: Stand gilt als übernommen
- let r; try{ r=aufCalc(a,CFG); }catch(e){ return; }
- const changed=a.appliedSig!==sig, stale=aufLocked()&&!!aufStale();
- if(!changed&&!stale) return;
- if(!r.B||!r.H||r.err.length){ if(changed) toast("Aufmaß nicht übernommen – Maße unvollständig oder widersprüchlich"); return; }
- aufApply(r,true); }
 let LIVE_BUSY=false;
 function aufLive(){ if(LIVE_BUSY||aufMode(CFG)!=="auf") return; const a=CFG.auf; if(!a||!a.m||!(+a.m.B1)) return; let r; try{ r=aufCalc(a,CFG); }catch(e){ return; }
  if(!r.B||!r.H||r.err.length) return; if(a.appliedSig===aufSig(a)&&aufMatch(CFG)&&!aufStale()) return;
@@ -2941,7 +2920,7 @@ function bumpNr(nr){ return nr.replace(/(\d+)(?!.*\d)/,m=>String(+m+1).padStart(
 /* ================= AKTIONEN ================= */
 function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2200)}
 let CUR_VIEW=null;
-let PREV_VIEW="v-cfg"; const OVS=["v-offer","v-set"];
+const OVS=["v-offer","v-set"];
 function showView(id){ if(id==="v-auf"){ goAuf(); return; } if(OVS.includes(id)&&CUR_VIEW===id) id="v-cfg";
  if(OVS.includes(id)){ OVS.forEach(o=>{ $(o).hidden=o!==id; }); if(id==="v-set") renderSaved&&renderSaved(); document.documentElement.classList.add("exp-open"); const cf=$("v-cfg"); if(cf) cf.hidden=false; document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===id)); CUR_VIEW=id; try{localStorage.setItem("gtk_tab","v-cfg")}catch(e){} setTimeout(()=>{ const c=$(id==="v-offer"?"expClose":"setClose"); if(c) c.focus(); },0); return; }
  document.documentElement.classList.remove("exp-open"); CUR_VIEW=id; $("chip").hidden=(id==="v-cfg"); if(id==="v-auf") renderAuf();document.querySelectorAll(".view").forEach(v=>v.hidden=v.id!==id);document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===id));try{localStorage.setItem("gtk_tab",id)}catch(e){}window.scrollTo(0,0)}
