@@ -1960,16 +1960,19 @@ let R;
 
 /* ===== Aufmaß-Festlegung: übernommene Maße, Beschlag, Zarge und Aufmaß-Zubehör sind in der Konfiguration gesperrt ===== */
 let LINE_ITEMS=null, AUF_RSIG="";
-function aufRSig(){ return JSON.stringify([aufSig(CFG.auf||{}),CFG.drv,CFG.door&&CFG.door.on,CFG.opts&&CFG.opts.dach,CFG.color,CFG.ral,CFG.line,CFG.surface]); }
+/* Signatur für die Aufmaß-Ergebnisanzeige: alles, was Ergebnis oder Mehrpreise beeinflusst (Konfiguration ohne Kunden-/Angebotsdaten + Preisfaktoren) */
+function aufRSig(){ const c=Object.assign({},CFG,{k:0,a:0,px:0,custom:0,customSvc:0}); return JSON.stringify([c,["tz","auf","mont","demont","fuge","auffm2","auffmin"].map(k=>S[k])]); }
 function goAuf(){ showView("v-cfg"); UI.torOpen="mass"; accApply("torAcc","torOpen"); setTimeout(()=>{ const s=document.querySelector('#torAcc [data-g="mass"]'); if(s) s.scrollIntoView({behavior:"smooth",block:"start"}); },280); }
 function aufLocked(){ const a=CFG.auf; return !!(a&&a.oB&&aufMatch(CFG)); }
 const LOCK_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
-function aufStale(){ try{ const r=aufCalc(CFG.auf,CFG); if(!r.B||!r.H) return null; const z=r.acc.some(x=>x[1]==="zarge50"), bk=r.setBeschlag||CFG.beschlag, d=[];
-  if(r.B!==CFG.b) d.push(`Breite ${r.B} statt ${CFG.b} mm`); if(r.H!==CFG.h) d.push(`Höhe ${r.H} statt ${CFG.h} mm`); if(bk!==CFG.beschlag) d.push(`Beschlag ${bnmG(bk).replace(/\.$/,"")} statt ${bnmG(CFG.beschlag).replace(/\.$/,"")}`); if(z!==!!CFG.opts.zarge50) d.push(z?"Sonderzarge 50 mm nötig":"Sonderzarge 50 mm nicht mehr nötig"); if(r.hfSel!=null&&String(r.hfSel)!==String(CFG.hf||"0")) d.push(`Zargenführung ${r.hfSel==="0"?"Standard":"Höherführung "+r.hfSel+" mm"} statt ${String(CFG.hf||"0")==="0"?"Standard":"Höherführung "+CFG.hf+" mm"}`);
-  return d.length?d:null; }catch(e){ return null; } }
-function applyAufLock(){ const on=aufLocked();
- { const m=aufMode(CFG); document.querySelectorAll(".mmode button").forEach(b=>{ b.classList.toggle("on",b.dataset.mm===m); b.setAttribute("aria-checked",b.dataset.mm===m); }); const ma=$("massAuf"), md=$("massDirect"); if(ma) ma.hidden=m!=="auf"; if(md) md.hidden=m==="auf";
+/* weicht die Konfiguration vom Aufmaß-Ergebnis r ab? (Größe, Beschlag, Sonderzarge, Zargenführung) */
+function aufOff(r){ const bk=r.setBeschlag||CFG.beschlag;
+ return r.B!==CFG.b||r.H!==CFG.h||bk!==CFG.beschlag||r.acc.some(x=>x[1]==="zarge50")!==!!CFG.opts.zarge50||(r.hfSel!=null&&String(r.hfSel)!==String(CFG.hf||"0")); }
+/* Umschalter „Aufmaß vor Ort / Maße direkt“ und passenden Bereich zeigen */
+function renderMassMode(){ const m=aufMode(CFG); document.querySelectorAll(".mmode button").forEach(b=>{ b.classList.toggle("on",b.dataset.mm===m); b.setAttribute("aria-checked",b.dataset.mm===m); }); const ma=$("massAuf"), md=$("massDirect"); if(ma) ma.hidden=m!=="auf"; if(md) md.hidden=m==="auf";
    if(m==="auf"&&ma&&!$("aufRes")) renderAuf(); else if(m==="auf"&&AUF_RSIG!==aufRSig()) renderAufRes(); }
+/* Felder, die aus dem Aufmaß kommen, in der Konfiguration sperren */
+function applyAufLock(){ const on=aufLocked();
  const hosts=["pk_beschlag","pk_hf","pk_zarge"];
  document.querySelectorAll(".lockn").forEach(e=>e.remove());
  hosts.forEach(id=>{ const h=$(id); if(!h) return; h.classList.toggle("locked",on); const b=h.querySelector(".pk-btn"); if(b) b.disabled=on;
@@ -1990,9 +1993,9 @@ function update(redrawSide=true){ if(CFG&&CFG.a){ CFG.a.datum=today(); CFG.a.gue
   $("pvLabel").innerHTML=`${CFG.b} × ${CFG.h} mm${cut?` <span class="pvcut">· unterste Lamelle −${cut} mm</span>`:""}`; }
  const lk=lookup(CFG);
  $("specline").textContent=`${isS15(CFG)?"Comfort Sonderpreisliste · ":isPrem(CFG)?"Premium · ":"Comfort Automatik · "}${CFG.surface} ${CFG.motiv} · ${colorName(CFG.color)}${verstaerkt(CFG)?` · verstärkt${durchfahrtVerlust(CFG)>0?` (Durchfahrt −${VERST_PLUS} mm)`:" (mit Höherführung)"}`:""}`;
- if(aufMode(CFG)==="auf"&&!LIVE_BUSY&&aufLocked()&&aufStale()){ aufLive(); return; }
+ if(aufSync()) return; /* Aufmaß-Modus: Konfiguration folgt dem Aufmaß – nach Übernahme rendert aufApply neu */
  $("msgs").innerHTML=R.err.map(e=>`<div class="msg err">${e}</div>`).join("")+R.warn.map(e=>`<div class="msg warn">${e}</div>`).join("");
- renderCalc(); renderSheet(); updateBadges(); applyAufLock();
+ renderCalc(); renderSheet(); updateBadges(); renderMassMode(); applyAufLock();
 }
 function renderCalc(){
  const row=l=>`<tr title="${esc(l.src||"")}"><td>${esc(l.title)}</td><td class="r">${l.changed?`<button type="button" class="pxnew" data-k="${esc(l.key)}" title="Neuer Preis – zum Übernehmen klicken">${eur(r2(l.curEp*l.qty))}</button> `:""}${eur(l.gp)}</td></tr>`;
@@ -2626,7 +2629,7 @@ function renderAuf(){
  const bsum=[SH[a.seite]||"",a.boden==="eben"?"Boden eben":(AUF_LAGE.find(x=>x[0]===a.lage)||[,"Versprung"])[1]].join(" · ");
  el.innerHTML=`<div class="auf-cols"><div class="auf-dwrap"><div class="auf-tools"><button type="button" class="bv-btn" id="bvBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span>Bauwerksvorgaben</span></button><span class="bv-sum">${esc(bsum)}</span></div>
   <div class="auf-draw">${aufSvg(a)}</div></div>
- <div id="aufRes"></div></div>`;
+ <div id="aufRes" class="novk"></div></div>`; /* novk: Mehrpreise im Aufmaß sind bereits Verkaufspreise – nicht noch einmal umrechnen */
  $("bvBtn").onclick=openBV;
  bindDimEdit(); renderAufRes();
 }
@@ -2666,7 +2669,7 @@ function openDimEdit(k){ const d=document.querySelector("#aufBody .auf-draw"); i
   else if(e.key==="Escape"){ e.preventDefault(); done=true; box.remove(); } };
  inp.onblur=()=>setTimeout(()=>{ if(!done) commit(0); },0);
 }
-function renderAufRes(){ renderAufRes0(); aufLive(); }
+function renderAufRes(){ renderAufRes0(); aufSync(); }
 function renderAufRes0(){
  const a=CFG.auf, r=aufCalc(a,CFG), el=$("aufRes"); if(!el) return; AUF_RSIG=aufRSig();
  const li=(arr,cls)=>arr.length?`<ul class="auf-list ${cls}">${arr.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:"";
@@ -2737,7 +2740,8 @@ function renderAufRes0(){
   { const d=aufDeltas(items.filter(x=>!x.disabled).map(x=>[x.v,{solH:x.v,solBk:r.bSel}])); items.forEach(x=>{ if(d[x.v]) { x.cost=d[x.v]; x.info=d[x.v].html; x.infoTitle=`Mehrpreis: ${x.label}`; } }); }
   picker("pk_solH",items,r.solH,v=>{a.solH=v;renderAufRes();store("gtk_draft",CFG)}); }
 }
-function aufCfg(r,base){ const c=JSON.parse(JSON.stringify(base||CFG)); if(r.hfSel!=null&&!(c.opts&&c.opts.dach)) c.hf=r.hfSel;
+/* Konfiguration für eine Aufmaß-Variante – nur für Vergleiche/Mehrpreise, rechnet mit aktuellen Preisen (ohne Preisbindung) */
+function aufCfg(r,base){ const c=JSON.parse(JSON.stringify(base||CFG)); delete c.px; if(r.hfSel!=null&&!(c.opts&&c.opts.dach)) c.hf=r.hfSel;
  if(r.B) { c.b=r.B; c.bSonder=!W.includes(r.B); } if(r.H) { c.h=r.H; c.hSonder=!H.includes(r.H); }
  if(r.setBeschlag) c.beschlag=r.setBeschlag; c.opts.zarge50=r.acc.some(x=>x[1]==="zarge50"); if(c.opts.zarge50&&BESCHLAG[c.line].some(b=>b[0]==="6NU")) c.beschlag="6NU";
  c.svc.auff=0; c.svc.auffP=[];
@@ -2758,28 +2762,32 @@ function aufDeltas(list,ref,note){ const n=list.map(x=>[x[0],aufRes(x[1])]), ok=
  const mn=Math.min(...ok.map(x=>x[1].net)), mx=Math.max(...ok.map(x=>x[1].net)), b=ref||ok.find(x=>x[1].net===mn)[1], o={};
  n.forEach(([v,x])=>{ if(!x) return; o[v]={d:fmtDelta(x.net-b.net),best:ok.length>1&&mx-mn>=0.5&&x.net-mn<0.5,html:aufDiff(b,x,note||"Verglichen mit der günstigsten Möglichkeit in dieser Auswahl.")}; }); return o; }
 // Vergleichsbasis für die Zarge: gleiches Tor, aber in voller lichter Breite, ohne Verkleidung und Sonderzarge
-function aufZargeRef(){ try{ const r=aufCalc(CFG.auf,CFG), c=aufCfg(r), B1=+CFG.auf.m.B1; if(!B1) return null; c.b=B1; c.bSonder=!W.includes(B1); c.opts.zarge50=false; c.mount.szv=CFG.mount.szv||0; c.beschlag=r.bSel||c.beschlag; if(c.auf){ c.auf.noteB=c.b; } normalize(c); return compute(c); }catch(e){ return null; } }
+function aufZargeRef(){ try{ const r=aufCalc(CFG.auf,CFG), c=aufCfg(r), B1=+CFG.auf.m.B1; if(!B1) return null; c.b=B1; c.bSonder=!W.includes(B1); c.opts.zarge50=false; c.mount.szv=(CFG.auf.accIds||[]).includes("szv")?0:(CFG.mount.szv||0); /* Verkleidung aus dem Aufmaß nicht in die Vergleichsbasis */ c.beschlag=r.bSel||c.beschlag; if(c.auf){ c.auf.noteB=c.b; } normalize(c); return compute(c); }catch(e){ return null; } }
 /* Vergleichsbasis für die Bodenprofil-Auswahl: dasselbe Tor ganz ohne Bodenprofil */
 function aufProfRef(){ try{ const r=aufCalc(CFG.auf,CFG), c=aufCfg(r); c.mount.zboden=0; c.mount.lboden=0; c.mount.bodenbohr=0; normalize(c); return compute(c); }catch(e){ return null; } }
 const NOTE_Z="Verglichen mit demselben Tor in voller lichter Breite ohne Verkleidung und Sonderzarge – der Beschlag ist im Beschlag-Feld separat bepreist.";
 function H1Gap(a,std){ const h1=+a.m.H1||0; return Math.max(0,h1-std); }
 function aufSig(a){ const k=["seite","sturz","boden","lage","m","solB","solH","solHs","solW","solZ","solBk","solP","solPb","symB","solHf"], o={}; k.forEach(x=>o[x]=a[x]??null); o.line=CFG.line; return JSON.stringify(o); }
-// beim Verlassen des Aufmaßes: übernehmen, wenn es geändert wurde oder die Konfiguration nicht mehr dazu passt
+/* Aufmaß-Modus: Die Konfiguration folgt immer dem gültigen Aufmaß-Ergebnis.
+   Übernommen wird nur, wenn sich die Aufmaß-Eingaben geändert haben oder die Konfiguration nicht mehr zum Ergebnis passt
+   (z. B. weil Antrieb, Farbe oder Dachfolge das Ergebnis verändern). Rückgabe: true = übernommen und neu gerendert. */
 let LIVE_BUSY=false;
-function aufLive(){ if(LIVE_BUSY||aufMode(CFG)!=="auf") return; const a=CFG.auf; if(!a||!a.m||!(+a.m.B1)) return; let r; try{ r=aufCalc(a,CFG); }catch(e){ return; }
- if(!r.B||!r.H||r.err.length) return; if(a.appliedSig===aufSig(a)&&aufMatch(CFG)&&!aufStale()) return;
- LIVE_BUSY=true; try{ aufApply(r,true,true); } finally { LIVE_BUSY=false; } }
-function aufApply(r,keepView,silent){
+function aufSync(){ if(LIVE_BUSY||aufMode(CFG)!=="auf") return false; const a=CFG.auf; if(!a||!a.m||!(+a.m.B1)) return false;
+ let r; try{ r=aufCalc(a,CFG); }catch(e){ return false; }
+ if(!r.B||!r.H||r.err.length) return false;
+ if(a.appliedSig===aufSig(a)&&aufMatch(CFG)&&!aufOff(r)) return false;
+ LIVE_BUSY=true; try{ aufApply(r); } finally { LIVE_BUSY=false; } return true; }
+function aufApply(r){
  if(r.hfSel!=null&&!(CFG.opts&&CFG.opts.dach)) CFG.hf=r.hfSel;
  CFG.b=r.B; CFG.bSonder=!W.includes(r.B); CFG.h=r.H; CFG.hSonder=!H.includes(r.H);
  if(r.setBeschlag) CFG.beschlag=r.setBeschlag;
- CFG.auf.lock=true; CFG.auf.appliedSig=aufSig(CFG.auf); CFG.auf.offerNote=""; CFG.auf.notes=r.notes||[]; CFG.auf.durchB=r.durchB||null; CFG.auf.noteB=r.B; CFG.auf.noteH=r.H; CFG.auf.oB=+CFG.auf.m.B1||null; CFG.auf.oH=+CFG.auf.m.H1||null;
+ CFG.auf.appliedSig=aufSig(CFG.auf); CFG.auf.notes=r.notes||[]; CFG.auf.durchB=r.durchB||null; /* Durchfahrtsbreite im Positionstext */ CFG.auf.noteB=r.B; CFG.auf.noteH=r.H; CFG.auf.oB=+CFG.auf.m.B1||null; CFG.auf.oH=+CFG.auf.m.H1||null;
  CFG.opts.zarge50=r.acc.some(x=>x[1]==="zarge50"); if(CFG.opts.zarge50&&BESCHLAG[CFG.line].some(b=>b[0]==="6NU")) CFG.beschlag="6NU";
  CFG.svc.auff=0; CFG.svc.auffP=[];
  { const now=r.acc.filter(x=>x[0]==="mount").map(x=>x[1]); (CFG.auf.accIds||[]).forEach(id=>{ if(!now.includes(id)){ CFG.mount[id]=0; if(CFG.mountH) delete CFG.mountH[id]; } }); CFG.auf.accIds=now; }
  r.acc.forEach(([kind,id,q])=>{ if(kind==="mount") CFG.mount[id]=q; if(kind==="svc") CFG.svc[id]=q; });
  { const gap=(+CFG.auf.m.H1||0)-r.H; if(gap>0) r.acc.forEach(([kind,id])=>{ if(kind==="mount"&&BLH[id]){ CFG.mountH=CFG.mountH||{}; CFG.mountH[id]=gap; } }); }
- normalize(CFG); checkB8&&checkB8(); renderAll(); if(!keepView) showView("v-cfg"); if(!silent) toast(`Aufmaß übernommen: ${r.B} × ${r.H} mm${r.acc.filter(x=>x[0]==="mount").length?" + Zubehör":""}${r.missing&&r.missing.length?" – es fehlen noch Maße":""}`);
+ normalize(CFG); checkB8&&checkB8(); renderAll();
 }
 
 /* ================= EINSTELLUNGEN ================= */

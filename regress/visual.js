@@ -35,7 +35,7 @@ const SCEN=[["bsp",null],["auf","o02"]];
  await b.close();
  const TF=path.join(DIR,'ref_text.json');
  if(UPD){ fs.writeFileSync(TF,JSON.stringify(txt,null,1)); console.log(`Referenz geschrieben: ${shots.length} Bilder`); if(errs.length) console.log("JS-FEHLER:",errs); return; }
- const rt=JSON.parse(fs.readFileSync(TF)); let bad=0;
+ const rt=JSON.parse(fs.readFileSync(TF)); fs.writeFileSync(path.join(DIR,'cur_text.json'),JSON.stringify(txt,null,1)); let bad=0;
  const res=JSON.parse(execFileSync('python3',[path.join(__dirname,'imgdiff.py'),REF,CUR,...shots]).toString());
  for(const f of shots){ const r=res[f], t=rt[f]!==txt[f];
   if(r.miss||r.px>0||t){ bad++; console.log(`✗ ${f}: ${r.miss?"keine Referenz":r.size?"Größe "+r.size:r.px+" Pixel anders"}${t?" · Text geändert":""}`); } }

@@ -15,7 +15,7 @@ const CASES=require('./cases.js'), BASE=path.join(__dirname,'baseline.json'), AP
    const o={t:c.t};
    if(c.auf){ CFG.auf=Object.assign(aufDefault(),JSON.parse(JSON.stringify(c.auf))); const r=aufCalc(CFG.auf,CFG);
     o.auf={B:r.B,H:r.H,beschlag:r.bSel||null,acc:r.acc,todo:r.todo,warn:r.warn,err:r.err,missing:r.missing};
-    if(r.B&&r.H&&!r.err.length) aufApply(r,true); }
+    if(r.B&&r.H&&!r.err.length) aufApply(r); }
    R=compute(CFG);
    if(c.pxTest){ CFG.px={}; R.lines.forEach(l=>{ if(l.key) CFG.px[l.key]=l.ep; }); const n0=R.net; Object.assign(S,c.pxTest); R=compute(CFG); o.px={vorher:n0,gesperrt:R.net,geaendert:R.changed.length,neu:r2(R.lines.reduce((a,l)=>a+r2((l.curEp??l.ep)*l.qty),0))}; R.lines.forEach(l=>{ if(l.key) CFG.px[l.key]=l.curEp; }); R=compute(CFG); o.px.nachUebernahme=R.net; }
    o.cfg={line:CFG.line,b:CFG.b,h:CFG.h,beschlag:CFG.beschlag,zarge50:!!CFG.opts.zarge50,drv:CFG.drv,
