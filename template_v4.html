@@ -2576,7 +2576,10 @@ function aufCalc(a,c){
  return X.R;
 }
 /* Schemazeichnung (nicht maßstäblich) mit Kürzeln der Maße */
-function aufSvg(a){
+/* ================= AUFMASS-ZEICHNUNG =================
+   aufSvg(a): Draufsicht + Seitenschnitt (nicht maßstäblich) mit Maßketten; Kürzel-Beschriftungen sind antippbar (data-k). */
+/* Zeichenwerkzeuge, Maßstab und das Aufmaß-Ergebnis, das beide Ansichten brauchen */
+function aufSvgKontext(a){
  // Technische Zeichnung: Kettenmaße mit Schrägstrichen, Bruchlinien an geschnittenen Bauteilen, Maßketten außerhalb der Zeichnung
  const MC="#b2541f", wall='fill="#dfe5e9" stroke="#6d7a83" stroke-width="1"', door='stroke="#1f6fb2" stroke-width="4"';
  const K={ST:"ST",MT:"MT",EP:"EP",PO:"PO",PU:"PU",B1:"B1",SL:"SPL",SR:"SPR",AL:"AL",AR:"AR",T:"AT",V:"V",H1:"H1",SO:"SO",AO:"AO",DH:"DH",RT:"RT","ΔH":"DV"}, FL=aufFields(a);
@@ -2612,12 +2615,17 @@ function aufSvg(a){
  const RC=aufCalc(a,CFG), PB=RC.probB, SOLB=PB?((a.solB||(PB.z50?"z50":"sonder"))==="z50"&&PB.z50?"z50":"sonder"):"";
  const SPmm=PB?(SOLB==="z50"?50:RC.SP):(RC.acc.some(x=>x[1]==="zarge50")?50:RC.SP), zW=Math.max(5,SPmm*PX), SHIFT=PB?(SOLB==="z50"?PB.d5:PB.d).map(x=>x*PX):(RC.stdW&&(a.solW||"std")==="std"?[-RC.stdW.ov*PX,-RC.stdW.ov*PX]:[0,0]);
 
+ const DPX=.25, W=440; /* Tiefenmaßstab (beide Ansichten) und Zeichnungsbreite */
+ return {a,MC,wall,door,K,FL,val,lw,lbl,gl,ln,ext,tick,txtOf,lab,hchain,vchain,zz,poly,defs,PX,num,cl,RC,PB,SOLB,SPmm,zW,SHIFT,DPX,W};
+}
+/* Draufsicht: Laibungen/Anschläge, Zarge (rot, wenn sie nicht passt), Tor und Maßketten B1, AL/AR, SL/SR, T/V */
+function aufSvgDraufsicht(Z){
+ const {a,wall,door,val,ext,hchain,vchain,poly,PX,num,cl,RC,zW,SHIFT,DPX,W}=Z;
  // ───────── Draufsicht (Außen oben, Innen unten). Von außen gesehen links = Bildseite rechts ─────────
  const s=a.seite, an=s.startsWith("anschlag");
  // Tiefenmaße (Anschlagtiefe, Versatz, Tiefe hinter dem Anschlag) in beiden Ansichten im selben Maßstab
- const DPX=.25;
  const Vp=s==="anschlag_versetzt"?cl(num("V",30)*DPX,4,120):0;
- const W=440, c=220, xR=290, yF=58, Tp=an?cl(num("AT",115)*DPX,12,40):0, yW=yF+Tp+(an?cl(num("ST",100)*DPX,Vp,150):cl(num("MT",240)*DPX,16,90)), yEnd=yW+70, xCut=412;
+ const c=220, xR=290, yF=58, Tp=an?cl(num("AT",115)*DPX,12,40):0, yW=yF+Tp+(an?cl(num("ST",100)*DPX,Vp,150):cl(num("MT",240)*DPX,16,90)), yEnd=yW+70, xCut=412;
  let h=`<svg viewBox="0 0 ${W} ${yEnd+56}" class="auf-svg" role="img" aria-label="Draufsicht"><text x="6" y="12" font-size="11" fill="#667">Draufsicht</text>`;
  const geo=[0,1].map(i=>{ const Ak=i?"AL":"AR", Sk=i?"SPL":"SPR"; // i=0: Bildseite rechts = rechts (von innen gesehen)
   const Ap=an?cl(num(Ak,100)*PX,0,45):0, Sp=(an?cl(Ap+num(Sk,150)*PX,0,110):cl(num(Sk,300)*PX,3,100)); return {Ap,Sp,ext:Sp+14}; });
@@ -2656,6 +2664,11 @@ function aufSvg(a){
  }
  h+=`</svg>`;
 
+ return h;
+}
+/* Seitenschnitt: Sturz, Decke, Boden, Platzbedarf des Beschlags, Schiene, Federn, Antrieb und Maßketten */
+function aufSvgSchnitt(Z){
+ const {a,wall,door,ln,ext,hchain,vchain,zz,poly,PX,num,cl,RC,DPX,W}=Z;
  // ───────── Seitenschnitt (Außen links, Innen rechts) ─────────
  const t=a.sturz, at=t.startsWith("anschlag"), Hs=RC.H||num("H1",2125), H1v=num("H1",Hs);
  const bk=RC.setBeschlag||CFG.beschlag, stz=RC.st||[200,0,200], f0=stz[0], dep=stz[1], b2=stz[2];
@@ -2710,7 +2723,15 @@ function aufSvg(a){
    const ysd=[...ys].reverse(), ksd=[...ks].reverse(); v+=vchain(xv,ysd,ksd,-1);
    if(lo&&a.lage==="hinter"){ const xq=sx+16; v+=ext(sx-2,FLOOR,xq+6,FLOOR)+vchain(xq,[FLi,FLOOR],["ΔH"],1); } }
  { const xv=xBack+26; v+=ext(xBack+13,FLi,xv+6,FLi)+ext(xBack+13,yC,xv+6,yC)+vchain(xv,[yC,FLi],["DH"],1); }
- if(DET){ // Detail Bodenprofil (vergrößert, ca. 1,6 px/mm)
+ if(DET) v+=aufSvgBodenDetail(Z,FLOOR);
+ v+=`</svg>`;
+ return v;
+}
+/* Detail Bodenprofil (vergrößert, ca. 1,6 px/mm): L-/Z-Profil oder bauseitiger Ausgleich */
+function aufSvgBodenDetail(Z,FLOOR){
+ const {wall,door,ext,hchain,vchain,poly,num,cl,RC}=Z;
+ let v="";
+ {
   const PK=RC.prof?RC.prof.k:"z", pz=PK==="z", sc=1.6, dvm=num("DV",20), POm=pz?num("PO",75):70, PUm=num("PU",40), Y0=FLOOR+72, yLo=Y0+70, yHi=yLo-cl(dvm*sc,6,60), xs=220;
   const po=cl(POm*sc,10,120), pu=cl(PUm*sc,10,120);
   v+=`<text x="${xs-150}" y="${Y0-26}" font-size="11" fill="#667">Detail Bodenprofil (Versprung unter dem Tor)</text>`;
@@ -2722,9 +2743,9 @@ function aufSvg(a){
   if(pz) v+=ext(xs-pu,yLo+20,xs-pu,yLo+34)+ext(xs,yLo+20,xs,yLo+34)+hchain(yLo+30,[xs-pu,xs],["PU"]);
   v+=ext(xs+172,yHi,xs+196,yHi)+ext(xs+172,yLo,xs+196,yLo)+vchain(xs+190,[yHi,yLo],[{g:String(dvm)}],1);
   v+=`<text x="${xs-146}" y="${yLo-6}" font-size="10" fill="#667">Außen</text><text x="${xs+166}" y="${yHi-6}" text-anchor="end" font-size="10" fill="#667">Innen</text>`; }
- v+=`</svg>`;
- return h+v;
+ return v;
 }
+function aufSvg(a){ const Z=aufSvgKontext(a); return aufSvgDraufsicht(Z)+aufSvgSchnitt(Z); }
 function renderAuf(){
  if(!CFG.auf) CFG.auf=aufDefault(); const a=CFG.auf, el=$("aufBody"); if(!el) return;
  const fields=aufFields(a);
