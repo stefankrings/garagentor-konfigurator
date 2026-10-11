@@ -2339,19 +2339,26 @@ function aufPruefen(X){
   if(a.seite==="stumpf_in"&&MT0!=null&&EP0!=null&&EP0>MT0) R.err.push(`Torposition ${EP0} mm liegt außerhalb der Mauer (Mauerdicke ${MT0} mm).`);
   if(a.seite==="stumpf_in"&&B1!=null&&B1<=2*SP) R.err.push(`Lichte Breite ${B1} mm zu klein für die Zarge.`); }
 }
-/* Breite: Zarge, Sonderbreite, Symmetrie, Standardbreite mit Überdeckung, Tor in der Öffnung */
+/* Breite (Ablauf): Tor in der Öffnung oder Zarge auf Anschlag/Wand */
 function aufBreite(X){
- const {a,v,R,B1,V,SP,z50ok,szvQ}=X; const c=X.c;
- if(B1!=null){
-  if(a.seite==="stumpf_in"){
-   // Tor in der Öffnung: Sonderzarge 50 mm bringt je Seite 30 mm mehr Durchfahrt (nur 6.(NU), Torbreite max. 3500 mm)
+ if(X.B1==null) return;
+ if(X.a.seite==="stumpf_in"){ aufBreiteInOeffnung(X); return; }
+ aufBreiteSeiten(X); aufStandardbreite(X);
+}
+/* Tor in der Öffnung: Zarge in der Laibung, Durchfahrt wird kleiner; Sonderzarge 50 mm bringt je Seite 30 mm (nur 6.(NU), max. 3500 mm) */
+function aufBreiteInOeffnung(X){
+ const {a,R,B1,SP,z50ok,szvQ}=X; const c=X.c;
    const zo=OPTIONS.find(o=>o.id==="zarge50"), zB=B1-100;
    if(z50ok&&zB<=3500){ R.zIn={std:B1-2*SP,z50:zB,mp:zo?zo.price(c):0,set:!!a.solZ}; }
    const useZ=R.zIn&&a.solZ==="z50", sp2=useZ?50:SP; R.B=B1-2*sp2;
    if(useZ){ R.acc.push(["opt","zarge50"]); R.info.push(`Sonderzarge 50 mm: Durchfahrtsbreite ${R.B} mm statt ${B1-2*SP} mm – nur mit Beschlag 6.(NU), Mehrpreis.`); }
    else R.info.push(`Tor in der Öffnung: Zarge braucht je Seite ${SP} mm, Durchfahrtsbreite ${R.B} mm statt ${B1} mm.`);
-   R.acc.push(["mount","szv",szvQ]); R.todo.push(`${szvQ} Paar Seitenzargen-Verkleidung in Torfarbe – Führungsschienen stehen in der lichten Öffnung`); }
-  else { const an=a.seite.startsWith("anschlag"), sl=[v("SPL"),v("SPR")], al=[v("AL"),v("AR")];
+   R.acc.push(["mount","szv",szvQ]); R.todo.push(`${szvQ} Paar Seitenzargen-Verkleidung in Torfarbe – Führungsschienen stehen in der lichten Öffnung`);
+}
+/* Zarge auf Anschlag/Wand: nutzbarer Seitenplatz je Seite; reicht er nicht → Sonderbreite (asym/sym) oder Sonderzarge 50 mm */
+function aufBreiteSeiten(X){
+ const {a,v,R,B1,V,SP,z50ok,szvQ}=X;
+  const an=a.seite.startsWith("anschlag"), sl=[v("SPL"),v("SPR")], al=[v("AL"),v("AR")];
    const STw=v("ST"), behind=an&&STw!=null&&(STw===0||(a.seite==="anschlag_versetzt"&&V>=STw)); R.behind=behind; // Tor steht hinter der Laibung → Zarge auf der Wandrückseite
    if(behind) R.info.push(`Tor steht ${a.seite==="anschlag_versetzt"?"durch den Versatz ":""}hinter der Laibung – die Zarge sitzt auf der Wandrückseite, nutzbar sind Anschlag + Seitenplatz innen.`);
    const side=[0,1].map(i=>an?(al[i]==null?null:(behind?(sl[i]==null?al[i]:al[i]+Math.max(0,sl[i])):al[i]+Math.min(0,sl[i]||0))):sl[i]); // bei Anschlag: Seitenplatz ab Laibung hinter dem Anschlag
@@ -2366,11 +2373,14 @@ function aufBreite(X){
      let sol=a.solB||(p.z50?"z50":"sonder"); if(sol==="z50"&&!p.z50) sol="sonder";
      if(sol==="z50"){ R.acc.push(["opt","zarge50"]); R.info.push("Sonderzarge für 50 mm Seitenplatz – nur mit Beschlag 6.(NU), Mehrpreis.");
       if(p.alt50<B1){ R.B=p.alt50; R.info.push(`Sonderbreite ${R.B} mm: Tor wird ${txt(p.d5)} schmaler (von innen gesehen), dort ist die Führungsschiene sichtbar.`); R.acc.push(["mount","szv",szvQ]); R.todo.push(`${szvQ} Paar Seitenzargen-Verkleidung in Torfarbe`); } }
-     else { R.B=p.alt; R.info.push(`Sonderbreite ${R.B} mm: Tor wird ${txt(p.d)} schmaler (von innen gesehen), dort ist die Führungsschiene sichtbar.`); R.acc.push(["mount","szv",szvQ]); R.todo.push(`${szvQ} Paar Seitenzargen-Verkleidung in Torfarbe`); } } }
+     else { R.B=p.alt; R.info.push(`Sonderbreite ${R.B} mm: Tor wird ${txt(p.d)} schmaler (von innen gesehen), dort ist die Führungsschiene sichtbar.`); R.acc.push(["mount","szv",szvQ]); R.todo.push(`${szvQ} Paar Seitenzargen-Verkleidung in Torfarbe`); } } } X.side=side; X.an=an;
+}
+/* Standardbreite statt Sonderbreite, wenn die Öffnung bis 15 mm schmaler ist und der Seitenplatz die Überdeckung erlaubt */
+function aufStandardbreite(X){
+ const {a,R,B1,SP,side,an}=X;
    if(!R.probB&&side[0]!=null&&side[1]!=null){ const Wn=W.find(x=>x>=B1); if(Wn&&Wn!==B1&&Wn-B1<=15){ const ov=(Wn-B1)/2;
      if(Math.min(side[0],side[1])>=SP+ov){ R.stdW={W:Wn,ov}; const sw=a.solW||"std";
-      if(sw==="std"){ R.B=Wn; R.offerNote=`Das Tor wird in Standardbreite ${Wn} mm gefertigt und ist damit ${Wn-B1} mm breiter als die lichte Öffnung (${B1} mm). Die Führungsschienen verschwinden vollständig hinter dem ${an?"Anschlag":"Mauerwerk"} und stehen sogar etwas zurück.`; R.info.push(`Standardbreite ${Wn} mm statt Sonderbreite ${B1} mm: je Seite ${ov} mm Überdeckung, Schienen verschwinden hinter dem ${an?"Anschlag":"Mauerwerk"}. Hinweis kommt in den Angebotstext.`); } } } } }
- }
+      if(sw==="std"){ R.B=Wn; R.offerNote=`Das Tor wird in Standardbreite ${Wn} mm gefertigt und ist damit ${Wn-B1} mm breiter als die lichte Öffnung (${B1} mm). Die Führungsschienen verschwinden vollständig hinter dem ${an?"Anschlag":"Mauerwerk"} und stehen sogar etwas zurück.`; R.info.push(`Standardbreite ${Wn} mm statt Sonderbreite ${B1} mm: je Seite ${ov} mm Überdeckung, Schienen verschwinden hinter dem ${an?"Anschlag":"Mauerwerk"}. Hinweis kommt in den Angebotstext.`); } } } }
 }
 /* Sturzmaße: größte mögliche Torhöhe je Beschlag (hmaxFor) aus Sturz, Anschlag oben, Decke und Bodenversatz */
 function aufSturzmass(X){
