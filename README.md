@@ -1,7 +1,7 @@
 # Garagentor-Konfigurator – Projektordner
 
 Aktuelle Version: **V4** (`template_v4.html` → `Garagentor-Konfigurator-V4.html`).
-V1–V3 sind Archivstände; Quelle von V3: `template_v3.html`.
+V1–V3 liegen als Archivstände in `archiv/` (nur zum Nachlesen, die dortigen Bauskripte laufen nicht mehr ohne Anpassung).
 
 ## Bauen und prüfen
     ./build_v4.sh          # baut V4, 132 Rechentests + 70 Bildvergleiche
@@ -23,3 +23,9 @@ in `tools/`: `npm install` (acorn, acorn-walk, postcss, prettier).
 
 ## Datenquellen
 PLZ/Orte: © OpenStreetMap-Mitwirkende (ODbL), OpenPLZ API · Teilorte: GeoNames (CC BY 4.0)
+
+## Regeln für dieses Repository
+- Privates Repository. Keine Kundendaten, keine Zugangsdaten, keine API-Schlüssel (auch nicht für CAS genesisWorld). Zugangsdaten gehören in Umgebungsvariablen bzw. Secrets.
+- Gespeicherte Angebote liegen im Browser (localStorage), nicht hier.
+- Die gebauten Dateien (`Garagentor-Konfigurator-V4.html`, ca. 5 MB) werden nicht eingecheckt, sondern mit `./build_v4.sh` erzeugt.
+- Änderungen immer auf einem eigenen Branch; vor dem Zusammenführen müssen `./build_v4.sh` (132 Rechentests, 70 Bildvergleiche) und der Mutationstest durchlaufen.

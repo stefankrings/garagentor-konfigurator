@@ -1,0 +1,16 @@
+node_modules/
+__pycache__/
+# erzeugte Dateien
+Garagentor-Konfigurator*.html
+Pruefliste-Konfigurator.html
+Angebot-Entwurf-*.html
+regress/visual/cur/
+regress/visual/cur_text.json
+regress/visual/diff_*.png
+# lokale Arbeitsordner, nicht Teil des Projekts
+_archiv/
+imgs/
+mod/
+fassaden/
+drive.json
+extract.py

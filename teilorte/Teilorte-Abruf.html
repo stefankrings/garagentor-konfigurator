@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teilorte-Abruf</title>
+<style>
+:root{--bg:#f6f5f2;--ink:#1d1d1f;--muted:#6b6b70;--line:#dedcd6;--acc:#1f5c99;--ok:#2e7d32;--warn:#c77700}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--ink:#ecebe8;--muted:#a0a0a6;--line:#34363a;--acc:#6aa7e6}}
+:root[data-theme="dark"]{--bg:#17181a;--ink:#ecebe8;--muted:#a0a0a6;--line:#34363a;--acc:#6aa7e6}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:640px;margin:0 auto;padding:28px 16px}
+h1{font-size:22px;margin:0 0 6px}p{margin:0 0 12px;color:var(--muted)}
+.bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden;margin:18px 0 8px}.bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .3s}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+button{font:600 15px inherit;font-family:inherit;padding:10px 16px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+button.pri{background:var(--acc);border-color:var(--acc);color:#fff}button:disabled{opacity:.45;cursor:default}
+#st{font-variant-numeric:tabular-nums}#log{font:12px/1.45 ui-monospace,Menlo,monospace;color:var(--muted);max-height:220px;overflow:auto;border-top:1px solid var(--line);padding-top:8px;margin-top:14px;white-space:pre-wrap}
+.ok{color:var(--ok)}.warn{color:var(--warn)}
+</style></head><body><main>
+<h1>Teilorte-Abruf</h1>
+<p>Lädt einmalig alle Dörfer, Stadtteile und Ortsteile in Deutschland aus OpenStreetMap und speichert sie als Datei für den Garagentor-Konfigurator.</p>
+<p>Dauer ca. 30–60 Minuten. Das Fenster muss offen bleiben, der Rechner darf nicht in den Ruhezustand gehen. Wird es unterbrochen, einfach die Seite neu öffnen und „Starten“ drücken – es geht dort weiter, wo es aufgehört hat.</p>
+<div class="bar"><i id="bar"></i></div>
+<div id="st">Bereit.</div>
+<div class="row"><button class="pri" id="go">Starten</button><button id="dl" disabled>Datei speichern</button><button id="reset">Neu beginnen</button></div>
+<div id="log"></div>
+</main>
+<script>
+const EP=["https://overpass-api.de/api/interpreter","https://overpass.private.coffee/api/interpreter","https://maps.mail.ru/osm/tools/overpass/api/interpreter"];
+const PL='nwr["place"~"^(village|suburb|quarter)$"]';
+const KEY="teilorte_abruf_v1";
+let ST=load()||{kreise:null,done:{},g:{}}, RUN=false;
+function load(){ try{ return JSON.parse(localStorage.getItem(KEY)); }catch(e){ return null; } }
+function save(){ try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){ log("Zwischenspeichern nicht möglich – bei Abbruch beginnt der Abruf von vorn.","warn"); } }
+const $=id=>document.getElementById(id);
+function log(t,c){ const d=document.createElement("div"); if(c) d.className=c; d.textContent=new Date().toLocaleTimeString("de-DE")+"  "+t; $("log").prepend(d); }
+const fetchX=(u,o,ac)=>{ let p; try{ p=fetch(u,Object.assign({},o,{signal:ac.signal})); }catch(e){ p=Promise.reject(e); } /* manche Vorschau-Umgebungen können kein AbortSignal weiterreichen */
+ return p.catch(e=>/clone|postMessage/i.test(String(e&&e.message||e))?Promise.race([fetch(u,o),new Promise((_,rej)=>ac.signal.addEventListener("abort",()=>rej(new Error("Zeitüberschreitung"))))]):Promise.reject(e)); };
+async function q(ep,query,ms){ const ac=new AbortController(), tm=setTimeout(()=>ac.abort(),ms);
+ try{ const r=await fetchX(ep,{method:"POST",body:"data="+encodeURIComponent(query),headers:{"Content-Type":"application/x-www-form-urlencoded"}},ac);
+  if(r.status===429||r.status===504) throw new Error("Server ausgelastet ("+r.status+")"); if(!r.ok) throw new Error("HTTP "+r.status);
+  const j=await r.json(); if(j.remark&&/error|timed out|out of memory/i.test(j.remark)) throw new Error(j.remark.slice(0,120)); return j.elements||[]; }
+ finally{ clearTimeout(tm); } }
+async function qRetry(query,ms,pref=0){ let last; for(let a=0;a<6;a++){ const ep=EP[(pref+a)%EP.length]; try{ return await q(ep,query,ms); }catch(e){ last=e; await new Promise(r=>setTimeout(r,3000+a*4000)); } } throw last; }
+function upd(){ const K=ST.kreise||[], n=Object.keys(ST.done).length, g=Object.keys(ST.g).length, t=Object.values(ST.g).reduce((s,x)=>s+x[3].length,0);
+ $("bar").style.width=(K.length?100*n/K.length:0)+"%";
+ $("st").textContent=K.length?`${n} von ${K.length} Kreisen · ${g.toLocaleString("de-DE")} Gemeinden · ${t.toLocaleString("de-DE")} Teilorte`:"Bereit.";
+ $("dl").disabled=!g; }
+async function kreise(){ if(ST.kreise) return;
+ log("Kreise und kreisfreie Städte werden ermittelt …");
+ const el=await qRetry(`[out:json][timeout:180];(rel["boundary"="administrative"]["admin_level"="6"]["de:regionalschluessel"];rel["boundary"="administrative"]["admin_level"="4"]["name"~"^(Berlin|Hamburg)$"]["ISO3166-2"~"^DE-"];);out tags;`,200000);
+ ST.kreise=el.map(e=>({id:e.id,n:e.tags.name,l:e.tags.admin_level})); save(); log(`${ST.kreise.length} Kreise gefunden.`,"ok"); }
+function add(el){ let cur=null; el.forEach(e=>{ const t=e.tags||{}; if(e.type==="relation"&&t.boundary==="administrative"&&!t.place){ cur=null;
+   if(!t.name) return; const c=e.center||{}; cur=ST.g[e.id]=ST.g[e.id]||[t.name,+(c.lat||0).toFixed(3),+(c.lon||0).toFixed(3),[]]; }
+  else if(cur&&e.tags&&e.tags.name&&e.tags.name!==cur[0]&&!cur[3].includes(e.tags.name)) cur[3].push(e.tags.name); }); }
+async function kreis(k,w){
+ const gem=`[out:json][timeout:600];rel(${k.id});map_to_area->.k;rel(area.k)["boundary"="administrative"]["admin_level"="8"]["de:amtlicher_gemeindeschluessel"]->.r;foreach.r->.x(.x out tags center;.x map_to_area->.g;${PL}(area.g);out tags;);`;
+ let el=k.l==="4"?[]:await qRetry(gem,620000,w);
+ if(!el.some(e=>e.type==="relation")) el=await qRetry(`[out:json][timeout:600];rel(${k.id});out tags center;rel(${k.id});map_to_area->.g;${PL}(area.g);out tags;`,620000,w); /* kreisfreie Stadt / Stadtstaat */
+ add(el); ST.done[k.id]=1; save(); upd(); }
+async function start(){ if(RUN) return; RUN=true; $("go").disabled=true; const t0=Date.now();
+ try{ await kreise(); upd(); const todo=ST.kreise.filter(k=>!ST.done[k.id]); let i=0, err=0;
+  const worker=async w=>{ while(i<todo.length){ const k=todo[i++]; try{ await kreis(k,w); log(`${k.n} ✓`); }catch(e){ err++; log(`${k.n}: ${e.message||e} – wird beim nächsten Start erneut versucht`,"warn"); } } };
+  await Promise.all(EP.map((_,w)=>worker(w)));
+  const rest=ST.kreise.filter(k=>!ST.done[k.id]).length;
+  log(rest?`Durchlauf beendet, ${rest} Kreise fehlen noch – bitte „Starten“ erneut drücken.`:`Fertig nach ${Math.round((Date.now()-t0)/60000)} Min. Jetzt „Datei speichern“ drücken.`,rest?"warn":"ok");
+ }catch(e){ log("Abbruch: "+(e.message||e),"warn"); }
+ RUN=false; $("go").disabled=false; upd(); }
+function download(){ const g=Object.values(ST.g).filter(x=>x[3].length).map(x=>[x[0],x[1],x[2],x[3].sort((a,b)=>a.localeCompare(b,"de"))]);
+ const out=JSON.stringify({v:1,quelle:"© OpenStreetMap-Mitwirkende, ODbL",stand:new Date().toISOString().slice(0,10),kreise:ST.kreise.length,fertig:Object.keys(ST.done).length,g});
+ const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([out],{type:"application/json"})); a.download="teilorte-deutschland.json"; document.body.appendChild(a); a.click(); a.remove(); }
+$("go").onclick=start; $("dl").onclick=download;
+$("reset").onclick=()=>{ if(RUN) return; ST={kreise:null,done:{},g:{}}; save(); $("log").textContent=""; upd(); };
+upd(); if(ST.kreise) log("Vorheriger Stand geladen – „Starten“ setzt fort.");
+</script></body></html>
